@@ -108,22 +108,26 @@ while True:
             if 0 < required_bet <= 100 and phase == 'Pre-Flop':
                 accion = "call"
             elif 0 < required_bet <= 400 and force >= 0.9 and phase == 'Pre-Flop':
-                accion = "bet"
+                accion = "raise"
             elif 0 < required_bet <= 400 and force >= 0.8 and phase == 'Pre-Flop':
                 accion = "call"
             elif 0 < required_bet <= 400 and force >=0.7 and phase in ['Flop', 'Turn', 'River']:
                 accion = "call"
             else:
                 if force >= 0.9 and phase == 'Pre-Flop':
+                    accion = "raise"
+                if force >= 0.8 and phase == 'Pre-Flop':
                     accion = "call"
-                elif force >= 0.9 and phase in ['Flop', 'Turn', 'River']:
-                    accion = 'bet'
+                elif force >= 0.9 and phase in ['Turn', 'River']:
+                    accion = 'raise'
                 elif force >= 0.8 and phase in ['Flop', 'Turn', 'River']:
+                    accion = 'bet'
+                elif force >= 0.75 and phase in ['Flop', 'Turn', 'River']:
                     accion = 'call'
                 else:
                     accion = 'fold'
 
-            if accion == 'fold' and phase == 'Pre-Flop' and random.random() < 0.2:
+            if accion == 'fold' and phase == 'Pre-Flop' and random.random() < 0.3:
                 print('apuesta por azar')
                 accion = 'call'
 

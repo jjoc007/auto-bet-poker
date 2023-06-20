@@ -16,6 +16,20 @@ def perform_action(driver, action):
                 button = footer.find_element(By.XPATH, ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
                 driver.execute_script("arguments[0].click();", button)
 
+        if action == 'raise':
+            try:
+                button = footer.find_element(By.XPATH, '//div[starts-with(text(), "Subir")]')
+                driver.execute_script("arguments[0].click();", button)
+            except Exception as ei:
+                try:
+                    button = footer.find_element(By.XPATH,
+                                                 ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
+                    driver.execute_script("arguments[0].click();", button)
+                except Exception as ei:
+                    button = footer.find_element(By.XPATH,
+                                                 ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
+                    driver.execute_script("arguments[0].click();", button)
+
         if action == 'bet':
             try:
                 button = footer.find_element(By.XPATH,
