@@ -1,0 +1,15 @@
+Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$2 (file:/Users/jorjuela/Documents/bets/poker-chat/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO  2023-06-04T21:42:23,357 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-06-04T21:42:24,193 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-06-04T21:42:24,223 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2023-06-04T21:42:24,313 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:8080 
+[INFO  2023-06-04T21:42:24,921 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp961983234-19) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2023-06-04T21:42:24,945 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp961983234-19) Proxy listening with TCP transport 
+[INFO  2023-06-04T21:42:25,007 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp961983234-19) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[WARN  2023-06-04T21:42:34,755 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0xeedfa5b5, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:60836]: No host and port found in /bad-request 
+[INFO  2023-06-04T21:42:45,209 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
