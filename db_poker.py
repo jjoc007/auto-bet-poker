@@ -223,3 +223,33 @@ def insert_action(game_id, phase, cards, player_action):
         cursor.close()
     except mysql.connector.Error as err:
         print("Something went wrong: {}".format(err))
+
+
+def get_phase_actions_by_players(players_name):
+    try:
+        formatted_player_names = ', '.join("'" + player + "'" for player in players_name)
+
+        query = f"""
+        SELECT player_name, phase, player_action
+        FROM player_action
+        WHERE player_name IN ({formatted_player_names})
+        """
+        cursor = mydb.cursor()
+        cursor.execute(query)
+
+        player_actions_by_phase = {}
+
+        for player_name, phase, player_action in cursor:
+            if player_name not in player_actions_by_phase:
+                player_actions_by_phase[player_name] = {}
+            if phase not in player_actions_by_phase[player_name]:
+                player_actions_by_phase[player_name][phase] = []
+
+            player_actions_by_phase[player_name][phase].append(player_action)
+
+        cursor.close()
+        return player_actions_by_phase
+    except mysql.connector.Error as err:
+        print("Something went wrong: {}".format(err))
+
+

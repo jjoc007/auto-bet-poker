@@ -30,12 +30,13 @@ def detect_pozo(driver):
 def get_current_bet(driver):
     try:
         footer = driver.find_element(By.CLASS_NAME, "table-footer-container")
-        call_component = footer.find_element(By.XPATH,
-                                             ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
+        call_component = footer.find_element(By.XPATH, '//div[starts-with(text(), "Igualar")]')
 
         text = call_component.text
         bet_value_text = text.split('$')[-1]
-        bet_value = float(bet_value_text.replace(',', ''))  # Removemos las comas en caso de que existan (ej. "1,000")
+        bet_value_text = bet_value_text.split('.')[0]
+        bet_value = bet_value_text.replace('K', '00')
+        bet_value = float(bet_value.replace(',', ''))  # Removemos las comas en caso de que existan (ej. "1,000")
         return bet_value
     except Exception as e:
         return 0
