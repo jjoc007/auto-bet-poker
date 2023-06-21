@@ -89,12 +89,14 @@ while True:
             else:
                 force = HandEvaluator.evaluate_hand([translate_card(me.card_1), translate_card(me.card_2)],
                                                     translate_cards(cards))
-            points = 0.0
 
             pozo_total = detect_pozo(driver)
             required_bet = get_current_bet(driver)
             my_cash = me_action.actual_cash
-            percentage_required = (required_bet / my_cash) * 100
+            cash_total = my_cash
+            if my_cash > 40000:
+                cash_total = 40000
+            percentage_required = (required_bet / cash_total) * 100
 
             accion = determine_action(players_action_information, phase, force, percentage_required)
 
