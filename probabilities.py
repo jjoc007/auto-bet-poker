@@ -221,7 +221,7 @@ def determine_action(players,  phase, force, percentage_required):
             if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
                 return 'fold'
             if 0.9 <= force <= 1:
-                return 'bet''
+                return 'bet'
 
         if profile == 'A':
             if 0 <= force < 0.7:
