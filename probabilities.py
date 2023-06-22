@@ -106,33 +106,27 @@ def determine_action(players,  phase, force, percentage_required):
 
     if phase == 'Pre-Flop':
         if profile == 'C':
-            if 0 <= force < 0.7 and percentage_required < 2 and 1 <= len(player_names) <= 6:
+            if 0 <= force < 0.8:
                 return 'fold'
-            if 0.7 <= force < 0.8 and percentage_required < 5 and 1 <= len(player_names) <= 6:
-                return 'call'
-            if 0.8 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.8 <= force <= 0.9 and percentage_required < 10 :
                 return 'bet'
-            if 0.9 <= force <= 1.0 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.9 <= force <= 1.0 and percentage_required < 10 :
                 return 'bet'
 
         if profile == 'A':
-            if 0 <= force < 0.7 and percentage_required < 2 and 1 <= len(player_names) <= 6:
+            if 0 <= force < 0.8:
                 return 'fold'
-            if 0.7 <= force < 0.8 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.8 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.8 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
-                return 'call'
-            if 0.9 <= force <= 1.0 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.9 <= force <= 1.0 and percentage_required < 10 :
                 return 'bet'
 
         if profile == 'E':
-            if 0 <= force < 0.7 and percentage_required < 2 and 1 <= len(player_names) <= 6:
+            if 0 <= force < 0.8:
                 return 'fold'
-            if 0.7 <= force < 0.8 and percentage_required < 5 and 1 <= len(player_names) <= 6:
-                return 'call'
-            if 0.8 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.8 <= force <= 0.9 and percentage_required < 10 :
                 return 'bet'
-            if 0.9 <= force <= 1.0 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.9 <= force <= 1.0 and percentage_required < 10 :
                 return 'bet'
 
     if phase == 'Flop':
@@ -140,11 +134,11 @@ def determine_action(players,  phase, force, percentage_required):
             if 0 <= force < 0.7:
                 return 'fold'
 
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 20 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 20 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -152,11 +146,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'A':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 20 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 20 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -164,11 +158,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'E':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -177,11 +171,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'C':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -189,11 +183,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'A':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -201,11 +195,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'E':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -214,11 +208,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'C':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -226,11 +220,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'A':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
@@ -238,11 +232,11 @@ def determine_action(players,  phase, force, percentage_required):
         if profile == 'E':
             if 0 <= force < 0.7:
                 return 'fold'
-            if 0.7 <= force <= 0.9 and percentage_required < 5 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 5 :
                 return 'bet'
-            if 0.7 <= force <= 0.9 and percentage_required < 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force <= 0.9 and percentage_required < 10 :
                 return 'call'
-            if 0.7 <= force < 0.9 and percentage_required >= 10 and 1 <= len(player_names) <= 6:
+            if 0.7 <= force < 0.9 and percentage_required >= 10 :
                 return 'fold'
             if 0.9 <= force <= 1:
                 return 'bet'
