@@ -1,35 +1,24 @@
-from phevaluator import evaluate_cards
+from deuces import Deck
+from deuces import Card
+from deuces import Evaluator
+evaluator = Evaluator()
 
+deck = Deck()
+board = [Card.new('Th'), Card.new('2d'), Card.new('3d'), Card.new('4d'), Card.new('5d')]
+player1_hand = [Card.new('Ac'), Card.new('Kd')]
+player2_hand = [Card.new('Ah'), Card.new('Ad')]
 
-'''
-def translate_cards(play_cards):
-    c = []
-    for card in play_cards:
-        s, v = card.split("_")
-        s_f = 'd'
-        if s == "T":
-            s_f = 'c'
-        elif s == "C":
-            s_f = 'h'
-        elif s == "P":
-            s_f = 's'
+Card.print_pretty_cards(board)
+Card.print_pretty_cards(player1_hand)
+Card.print_pretty_cards(player2_hand)
 
-        c.append(f"{v}{s_f}")
-    return c
+p1_score = evaluator.evaluate(board, player1_hand)
+p2_score = evaluator.evaluate(board, player2_hand)
+p1_class = evaluator.get_rank_class(p1_score)
+p2_class = evaluator.get_rank_class(p2_score)
 
-test_h = ['C_7','T_5','D_3', 'T_J', 'P_4', 'D_J']
-p1 = evaluate_cards(*translate_cards(test_h))
-p2 = evaluate_cards("9c", "4c", "4s", "9d", "4h", "2c", "9h")
+print("Player 1 hand rank = %d (%s)" % (p1_score, evaluator.class_to_string(p1_class)))
+print("Player 2 hand rank = %d (%s)" % (p2_score, evaluator.class_to_string(p2_class)))
 
-# Player 2 has a stronger hand
-print(f"The rank of the hand in player 1 is {p1}") # 292
-print(f"The rank of the hand in player 2 is {p2}") # 236
-'''
-
-from pokereval.card import Card
-from pokereval.hand_evaluator import HandEvaluator
-
-hole = [Card('Q', 'D'), Card('A', 'S')]
-board = []
-score = HandEvaluator.evaluate_hand(hole, board)
-print(score)
+hands = [player1_hand, player2_hand]
+evaluator.hand_summary(board, hands)

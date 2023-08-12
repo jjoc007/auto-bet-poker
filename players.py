@@ -5,9 +5,10 @@ import re
 
 
 class Player:
-    def __init__(self, name, ranking, me=False, card_1=None, card_2=None):
+    def __init__(self, name, ranking, cash=0, me=False, card_1=None, card_2=None):
         self.name = name
         self.ranking = ranking
+        self.cash = cash
         self.me = me
         self.card_1 = card_1
         self.card_2 = card_2
@@ -55,24 +56,10 @@ def get_players_info(driver):
 
             player_information = Player(player_name, player_ranking)
             players_info.append(player_information)
-
-            # guardar won informacion
-
-            player_won_container = driver.find_element(By.CLASS_NAME, 'PlayerWonContainer__content')
         except NoSuchElementException:
-            print("No se encontró el div con la información.")
-            player_won_container = None
+            pass
         except StaleElementReferenceException:
-            print("No se encontró el div con la información.")
-
-        # Si se encontró el elemento, guardarlo en un archivo
-        if player_won_container is not None:
-            player_won_text = player_won_container.text
-
-            # Abrir el archivo en modo append ('a') y guardar la información
-            with open('borradores/won_messages.txt', 'a') as file:
-                file.write(player_won_text + '\n')
-
+            pass
     return players_info
 
 
@@ -119,10 +106,10 @@ def get_players_action(driver, my_user, cards_df):
                                                 ".//div[contains(@class, 'rating-item') and not(contains(@class, 'empty'))]")
             player_ranking = len(rating_items)
 
-            player_information = Player(player_name, player_ranking, me, card_hand_1, card_hand_2)
-
             cash = player.find_element(By.CLASS_NAME, 'player-cash')
             player_cash = cash.text
+
+            player_information = Player(player_name, player_ranking, player_cash, me, card_hand_1, card_hand_2)
 
             action_elements = player.find_elements(By.CLASS_NAME, 'player-action')
             if action_elements:
