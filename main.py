@@ -220,7 +220,7 @@ while True:
                     all_friend_cards.extend(friend_cards)
                     friend['hand'] = friend_cards
 
-                    logger_friends.info(f"Friend: {friend} cards: {friend_cards} type: {type(friend_cards)}")
+                    print(f"Friend: {friend} cards: {friend_cards} type: {type(friend_cards)}")
                     # calcular fuerza de la mano de cada amigo
 
             # guardar accion
@@ -244,7 +244,7 @@ while True:
             if accion is None:
                 accion = determine_simple_action(s_n > 0, phase, force)
 
-            logger_games.info(f"FM: {force} A: {accion}  RB: {required_bet} MC: {my_cash}")
+            print(f"FM: {force} A: {accion}  RB: {required_bet} MC: {my_cash}")
             perform_action(driver, accion)
 
         new_game_id = detect_game(driver)
