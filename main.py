@@ -81,8 +81,8 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
         other_friend_cards = [my_hand[0], my_hand[1]]
         forces = [my_force]
         # valida si hay un amigo
-        if len(friends_in_game) > 0:
-            if len(friends_in_game) > 1:
+        if len(friends_in_game) > 0 and friends_in_game[0]['hand'] is not None:
+            if len(friends_in_game) > 1 and friends_in_game[1]['hand'] is not None:
                 other_friend_cards.append(friends_in_game[1]['hand'][0])
                 other_friend_cards.append(friends_in_game[1]['hand'][1])
             force_f1 = HandEvaluator.evaluate_hand([translate_card(friends_in_game[0]['hand'][0]),
@@ -92,7 +92,7 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
             forces.append(force_f1)
 
         other_friend_cards = [my_hand[0], my_hand[1]]
-        if len(friends_in_game) > 1:
+        if len(friends_in_game) > 1 and friends_in_game[1]['hand'] is not None:
             other_friend_cards.append(friends_in_game[0]['hand'][0])
             other_friend_cards.append(friends_in_game[0]['hand'][1])
             force_f2 = HandEvaluator.evaluate_hand([translate_card(friends_in_game[1]['hand'][0]),
@@ -102,7 +102,7 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
             forces.append(force_f2)
 
         # calcula accion segun fuerza conjunta
-
+        return None
 
 
 while True:
@@ -212,16 +212,17 @@ while True:
                                                     board=translate_cards(cards),
                                                     friend_cards=translate_cards(all_friend_cards))
 
+            accion = None
             if len(present_friends) > 0:
-                calculate_friends_force(active_players, present_friends, active_friends, [me.card_1, me.card_2], force, cards)
-            # calcular fuerza de amigos
+                accion = calculate_friends_force(active_players, present_friends, active_friends, [me.card_1, me.card_2], force, cards)
 
             pozo_total = detect_pozo(driver)
             required_bet = get_current_bet(driver)
             my_cash = me_action.actual_cash
             cash_total = my_cash
             # calcular accion con base en la fuerza de cada amigo
-            accion = determine_simple_action(s_n > 0, phase, force)
+            if accion is None:
+                accion = determine_simple_action(s_n > 0, phase, force)
 
             logger_games.info(f"FM: {force} A: {accion}  RB: {required_bet} MC: {my_cash}")
             perform_action(driver, accion)
