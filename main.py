@@ -234,7 +234,7 @@ while True:
 
             accion = None
             if len(present_friends) > 0:
-                accion = calculate_friends_force(active_players, present_friends, active_friends, [me.card_1, me.card_2], force, cards)
+                accion = calculate_friends_force(active_players, present_friends, active_friends, [me.card_1, me.card_2], force, cards, phase)
 
             pozo_total = detect_pozo(driver)
             required_bet = get_current_bet(driver)
