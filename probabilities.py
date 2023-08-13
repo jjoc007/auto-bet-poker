@@ -95,11 +95,11 @@ def count_profiles(player_actions_by_phase, phase):
 
 def determine_simple_action(has_raised,  phase, force):
     if phase == 'Pre-Flop':
-        if 0 <= force < 0.85:
+        if 0 <= force < 0.9:
             return 'fold'
-        if 0.85 <= force <= 0.9:
+        if 0.9 <= force <= 0.95:
             return 'call'
-        if 0.9 <= force <= 1.0:
+        if 0.95 <= force <= 1.0:
             return 'bet'
     if phase == 'Flop':
         if 0 <= force < 0.80:

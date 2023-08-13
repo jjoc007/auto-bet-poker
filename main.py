@@ -15,8 +15,8 @@ from evaluator.hand_evaluator import *
 
 import time
 
-my_player = 'jjoc007'
-my_friends = ['pmass']
+my_player = os.environ.get('MY_PLAYER')
+my_friends = [os.environ.get('MY_FRIEND')]
 
 # Configura el logging para el primer archivo
 logger_games = logging.getLogger('LoggerGames')
@@ -73,11 +73,14 @@ iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c94]'
 driver.switch_to.frame(iframe)
 
 
-def calculate_friends_force(players_in_game, friends_in_game, friends_active, my_hand, my_force, board_cards):
+def calculate_friends_force(players_in_game, friends_in_game, friends_active, my_hand, my_force, board_cards, phase):
     # todos los jugadores son amigos
     if friends_active >= players_in_game - 1:  # menos 1 excluyendome
+        print('Accion FOLD - solo amigos')
         return 'fold'
     else:
+        print('fuerza conjunta: *******************************')
+        print(f'mi mano: {my_hand} mi fuerza: {my_force} board: {board_cards}')
         other_friend_cards = [my_hand[0], my_hand[1]]
         forces = [my_force]
         # valida si hay un amigo
@@ -89,6 +92,10 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
                                                     translate_card(friends_in_game[0]['hand'][1])],
                                                    board=translate_cards(board_cards),
                                                    friend_cards=translate_cards(other_friend_cards))
+            print(f"amigo 1 mano: {friends_in_game[0]['hand'][0]} {friends_in_game[0]['hand'][1]} \n"
+                  f"a1 fuerza: {force_f1} \n"
+                  f"fcards: {other_friend_cards} \n"
+                  f"board: {board_cards} \n")
             forces.append(force_f1)
 
         other_friend_cards = [my_hand[0], my_hand[1]]
@@ -102,6 +109,19 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
             forces.append(force_f2)
 
         # calcula accion segun fuerza conjunta
+        print(f'fuerzas: {forces}')
+
+        if phase == 'Pre-Flop' and len(forces) > 0:
+            if forces[1] > forces[0] >= 0.7 and forces[1] >= 0.9:
+                print('accion conjunta: call')
+                return 'call'
+
+        if phase in ['Flop', 'Turn', 'River'] and len(forces) > 0:
+            if forces[1] > forces[0] >= 0.6 and forces[1] >= 0.8:
+                print('accion conjunta: bet')
+                return 'bet'
+
+        print('fuerza conjunta: *******************************')
         return None
 
 
