@@ -23870,3 +23870,744 @@
 2023-08-13 17:08:01,369 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
 2023-08-13 17:08:01,910 - LoggerGames - INFO - my games status: ---------------------------------------
 2023-08-13 17:08:01,910 - LoggerGames - INFO - hand cards: c1: C_J c2: C_A table cards: []
+2023-08-13 17:09:55,757 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:55,757 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:55,769 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:09:56,595 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:56,595 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:56,608 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:09:57,414 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:57,414 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:57,429 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:09:58,317 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:58,317 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:58,332 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:09:59,122 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:59,122 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:59,137 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:09:59,912 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:09:59,913 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:09:59,927 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:00,762 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:00,762 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:00,777 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:01,569 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:01,570 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:01,584 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:02,464 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:02,464 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:02,479 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:03,267 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:03,268 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:03,282 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:04,068 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:04,068 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:04,083 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:04,894 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:04,894 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:04,909 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:05,716 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:05,716 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:05,731 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:06,560 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:06,560 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:06,576 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:07,372 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:07,373 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:07,387 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:08,264 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:08,264 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:08,278 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:09,069 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:09,069 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:09,084 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:09,868 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:09,868 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:09,882 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:10,667 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:10,668 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:10,682 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:11,500 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:11,500 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:11,515 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:12,406 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:12,406 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:12,421 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:13,219 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:13,235 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:13,250 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:14,054 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:14,055 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:14,070 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:14,868 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:14,868 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:14,882 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:15,667 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:15,667 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:15,682 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:16,473 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:16,473 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:16,487 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:17,313 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:17,313 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:17,409 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:18,476 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:18,476 - LoggerGames - INFO - active players: 2 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:18,490 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:19,467 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:19,467 - LoggerGames - INFO - active players: 2 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:19,482 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:20,516 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:20,516 - LoggerGames - INFO - active players: 2 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:10:20,533 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:21,514 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:21,514 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:21,545 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:21,545 - LoggerGames - INFO - juego nuevo id: 10783301
+2023-08-13 17:10:22,307 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:22,307 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:22,321 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:23,348 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:23,348 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:23,360 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:24,552 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:24,552 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:24,568 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:25,612 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:25,613 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:25,628 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:26,763 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:26,764 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:26,779 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:27,815 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:27,815 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:27,830 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:28,862 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:28,862 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:28,877 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:28,877 - LoggerGames - INFO - juego nuevo id: 10783310
+2023-08-13 17:10:29,666 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:29,667 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:29,681 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:30,711 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:30,711 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:30,727 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:31,758 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:31,766 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:31,781 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:32,761 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:32,761 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:32,776 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:33,972 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:33,972 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:33,986 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:35,119 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:35,119 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:35,696 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:35,696 - LoggerGames - INFO - hand cards: c1: D_9 c2: P_K table cards: []
+2023-08-13 17:10:36,626 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:37,694 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:37,695 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:37,695 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:37,695 - LoggerGames - INFO - hand cards: c1: D_9 c2: P_K table cards: []
+2023-08-13 17:10:38,524 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:39,607 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:39,607 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:39,607 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:39,607 - LoggerGames - INFO - hand cards: c1: D_9 c2: P_K table cards: []
+2023-08-13 17:10:40,083 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:41,163 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:41,163 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:10:41,163 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:41,163 - LoggerGames - INFO - hand cards: c1: D_9 c2: P_K table cards: []
+2023-08-13 17:10:41,614 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:42,663 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:42,663 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:42,679 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:43,802 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:43,803 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:43,816 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:43,816 - LoggerGames - INFO - juego nuevo id: 10783322
+2023-08-13 17:10:44,653 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:44,653 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:44,668 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:45,705 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:45,705 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:45,721 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:46,762 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:46,762 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:46,777 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:47,808 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:47,808 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:47,825 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:48,903 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:48,903 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:48,917 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:50,065 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:50,065 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:50,546 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:50,546 - LoggerGames - INFO - hand cards: c1: T_Q c2: D_9 table cards: []
+2023-08-13 17:10:51,032 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:52,165 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:52,165 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:52,165 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:52,165 - LoggerGames - INFO - hand cards: c1: T_Q c2: D_9 table cards: []
+2023-08-13 17:10:52,608 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:53,693 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:53,694 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:53,710 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:54,763 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:54,763 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:54,777 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:54,777 - LoggerGames - INFO - juego nuevo id: 10783331
+2023-08-13 17:10:55,545 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:55,545 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:55,562 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:56,723 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:56,723 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:56,737 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:57,853 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:57,853 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:10:58,226 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:58,226 - LoggerGames - INFO - hand cards: c1: C_K c2: C_A table cards: []
+2023-08-13 17:10:58,710 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:10:59,799 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:10:59,799 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:10:59,799 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:10:59,799 - LoggerGames - INFO - hand cards: c1: C_K c2: C_A table cards: []
+2023-08-13 17:11:00,267 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:01,375 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:01,375 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:01,375 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:01,375 - LoggerGames - INFO - hand cards: c1: C_K c2: C_A table cards: []
+2023-08-13 17:11:01,902 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:03,013 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:03,014 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:03,027 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:03,027 - LoggerGames - INFO - juego nuevo id: 10783340
+2023-08-13 17:11:03,677 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:03,677 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:03,692 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:04,805 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:04,806 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:05,195 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:05,195 - LoggerGames - INFO - hand cards: c1: P_7 c2: T_4 table cards: []
+2023-08-13 17:11:05,679 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:06,772 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:06,772 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:06,772 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:06,772 - LoggerGames - INFO - hand cards: c1: P_7 c2: T_4 table cards: []
+2023-08-13 17:11:07,277 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:08,397 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:08,397 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:08,414 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:09,465 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:09,465 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:09,480 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:09,480 - LoggerGames - INFO - juego nuevo id: 10783347
+2023-08-13 17:11:10,157 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:10,157 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:10,175 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:11,404 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:11,404 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:11,417 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:12,502 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:12,503 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:12,905 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:12,906 - LoggerGames - INFO - hand cards: c1: C_4 c2: T_3 table cards: []
+2023-08-13 17:11:13,370 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:14,619 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:14,619 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:14,619 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:14,620 - LoggerGames - INFO - hand cards: c1: C_4 c2: T_3 table cards: []
+2023-08-13 17:11:15,120 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:16,222 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:16,222 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:16,222 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:16,222 - LoggerGames - INFO - hand cards: c1: C_4 c2: T_3 table cards: []
+2023-08-13 17:11:16,655 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:17,810 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:17,810 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:17,827 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:17,828 - LoggerGames - INFO - juego nuevo id: 10783356
+2023-08-13 17:11:18,572 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:18,573 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:18,587 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:19,666 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:19,666 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:20,065 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:20,065 - LoggerGames - INFO - hand cards: c1: C_8 c2: D_J table cards: []
+2023-08-13 17:11:20,604 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:21,712 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:21,712 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:21,712 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:21,713 - LoggerGames - INFO - hand cards: c1: C_8 c2: D_J table cards: []
+2023-08-13 17:11:22,159 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:23,253 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:23,253 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:23,268 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:24,308 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:24,309 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:24,324 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:24,324 - LoggerGames - INFO - juego nuevo id: 10783363
+2023-08-13 17:11:25,072 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:25,073 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:25,088 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:26,226 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:26,226 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:26,240 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:27,361 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:27,361 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:27,746 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:27,746 - LoggerGames - INFO - hand cards: c1: T_K c2: P_5 table cards: []
+2023-08-13 17:11:28,240 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:29,351 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:29,351 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:29,351 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:29,351 - LoggerGames - INFO - hand cards: c1: T_K c2: P_5 table cards: []
+2023-08-13 17:11:29,881 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:31,000 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:31,000 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:31,022 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:32,116 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:32,116 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:32,133 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:32,133 - LoggerGames - INFO - juego nuevo id: 10783371
+2023-08-13 17:11:32,959 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:32,960 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:32,976 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:34,150 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:34,151 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:34,551 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:34,551 - LoggerGames - INFO - hand cards: c1: C_8 c2: P_9 table cards: []
+2023-08-13 17:11:35,036 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:36,153 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:36,154 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:36,154 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:36,154 - LoggerGames - INFO - hand cards: c1: C_8 c2: P_9 table cards: []
+2023-08-13 17:11:36,575 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:37,655 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:37,655 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:37,669 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:38,704 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:38,705 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:38,720 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:38,720 - LoggerGames - INFO - juego nuevo id: 10783375
+2023-08-13 17:11:39,326 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:39,326 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:39,341 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:40,470 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:40,470 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:40,484 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:41,551 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:41,552 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:41,925 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:41,925 - LoggerGames - INFO - hand cards: c1: P_K c2: C_5 table cards: []
+2023-08-13 17:11:42,443 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:43,422 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:43,422 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:43,422 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:43,422 - LoggerGames - INFO - hand cards: c1: P_K c2: C_5 table cards: []
+2023-08-13 17:11:43,810 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:44,894 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:44,894 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:44,905 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:45,948 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:45,948 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:45,964 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:45,964 - LoggerGames - INFO - juego nuevo id: 10783381
+2023-08-13 17:11:46,750 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:46,750 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:46,765 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:47,844 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:47,844 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:48,270 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:48,270 - LoggerGames - INFO - hand cards: c1: C_8 c2: D_Q table cards: []
+2023-08-13 17:11:48,727 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:49,851 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:49,851 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:49,851 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:49,851 - LoggerGames - INFO - hand cards: c1: C_8 c2: D_Q table cards: []
+2023-08-13 17:11:50,309 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:51,359 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:51,359 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:51,373 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:52,503 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:52,503 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:52,518 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:52,518 - LoggerGames - INFO - juego nuevo id: 10783389
+2023-08-13 17:11:53,062 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:53,062 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:11:53,081 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:54,354 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:54,355 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:54,369 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:55,557 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:55,558 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:55,982 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:55,982 - LoggerGames - INFO - hand cards: c1: D_4 c2: T_T table cards: []
+2023-08-13 17:11:56,465 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:57,603 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:57,603 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:11:57,603 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:57,622 - LoggerGames - INFO - hand cards: c1: D_4 c2: T_T table cards: []
+2023-08-13 17:11:58,272 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:11:59,358 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:11:59,359 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:11:59,359 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:11:59,359 - LoggerGames - INFO - hand cards: c1: D_4 c2: T_T table cards: []
+2023-08-13 17:11:59,824 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:00,809 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:00,809 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:00,823 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:01,908 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:01,908 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:01,922 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:01,923 - LoggerGames - INFO - juego nuevo id: 10783395
+2023-08-13 17:12:02,658 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:02,658 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:02,678 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:03,963 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:03,963 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:04,369 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:04,369 - LoggerGames - INFO - hand cards: c1: P_J c2: P_7 table cards: []
+2023-08-13 17:12:04,887 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:06,302 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:06,302 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:06,302 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:06,302 - LoggerGames - INFO - hand cards: c1: P_J c2: P_7 table cards: []
+2023-08-13 17:12:06,819 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:08,010 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:08,010 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:08,025 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:09,323 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:09,324 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:09,339 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:09,339 - LoggerGames - INFO - juego nuevo id: 10783402
+2023-08-13 17:12:10,547 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:10,548 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:10,564 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:11,845 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:11,846 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:12,225 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:12,225 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:12,713 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:14,011 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:14,011 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:14,012 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:14,012 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:14,569 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:15,849 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:15,849 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:15,849 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:15,849 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:16,312 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:17,595 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:17,595 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:17,595 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:17,595 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:18,069 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:19,327 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:19,328 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:19,328 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:19,328 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:19,788 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:21,028 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:21,028 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:21,028 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:21,028 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:21,519 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:22,820 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:22,820 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:22,820 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:22,820 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:23,312 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:24,625 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:24,625 - LoggerGames - INFO - active players: 2 Active Friends: 0 Retirarse: 1 Subir: 0
+2023-08-13 17:12:24,625 - LoggerGames - INFO - my games status: ---------------------------------------
+2023-08-13 17:12:24,625 - LoggerGames - INFO - hand cards: c1: P_9 c2: D_8 table cards: []
+2023-08-13 17:12:25,084 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:26,448 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:26,448 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:26,464 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:26,464 - LoggerGames - INFO - juego nuevo id: 10783423
+2023-08-13 17:12:27,270 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:27,270 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:27,284 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:28,577 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:28,577 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:28,592 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:29,828 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:29,828 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:29,843 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:31,017 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:31,018 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:31,032 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:32,254 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:32,254 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:32,269 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:33,525 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:33,525 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:33,539 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:33,539 - LoggerGames - INFO - juego nuevo id: 10783433
+2023-08-13 17:12:34,602 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:34,603 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:34,617 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:35,847 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:35,847 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:35,863 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:37,062 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:37,062 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:37,077 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:38,351 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:38,351 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:38,366 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:39,597 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:39,597 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:39,613 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:40,921 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:40,921 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:40,939 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:42,201 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:42,201 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:42,220 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:43,449 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:43,450 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:43,479 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:45,004 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:45,004 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:45,024 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:46,314 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:46,314 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:46,330 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:47,362 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:47,363 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:47,378 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:48,597 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:48,597 - LoggerGames - INFO - active players: 3 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:48,613 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:49,625 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:49,625 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:49,640 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:50,612 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:50,612 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:50,627 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:51,625 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:51,625 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:51,640 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:52,613 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:52,613 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:52,629 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:53,661 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:53,661 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:53,676 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:54,667 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:54,667 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:54,682 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:55,663 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:55,663 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:55,678 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:56,649 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:56,649 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:56,664 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:57,660 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:57,660 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:57,675 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:58,654 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:58,654 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:58,670 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:12:59,746 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:12:59,746 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:12:59,760 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:00,766 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:00,766 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:00,778 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:01,807 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:01,807 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:01,822 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:02,871 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:02,871 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:02,885 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:03,920 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:03,920 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:03,935 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:04,963 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:04,963 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:04,978 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:05,967 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:05,967 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:05,981 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:07,007 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:07,007 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:07,022 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:08,148 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:08,148 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:08,164 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:09,222 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:09,222 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:09,238 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:10,261 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:10,261 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:10,277 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:11,305 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:11,305 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:11,320 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:12,347 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:12,347 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:12,362 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:13,415 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:13,416 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:13,430 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:14,450 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:14,451 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:14,466 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:15,497 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:15,497 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:15,512 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:16,551 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:16,551 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:16,566 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:17,662 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:17,680 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:17,694 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:18,768 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:18,768 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:18,783 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:19,865 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:19,866 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:19,880 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:20,867 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:20,867 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:20,881 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:21,847 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:21,847 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:21,861 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:22,868 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:22,868 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:22,883 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:23,945 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:23,946 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:23,963 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:24,966 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:24,966 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:24,982 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:25,977 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:25,977 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:25,991 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:26,964 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:26,964 - LoggerGames - INFO - active players: 2 Active Friends: 1 Retirarse: 0 Subir: 0
+2023-08-13 17:13:26,977 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:27,815 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:27,815 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:27,831 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:28,616 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:28,616 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:28,633 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:29,471 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:29,471 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:29,486 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:30,269 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:30,269 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:30,284 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:31,145 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:31,146 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:31,165 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:31,997 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:31,997 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:32,011 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:32,821 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:32,821 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:32,836 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:33,722 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:33,722 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:33,736 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:34,572 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:34,572 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:34,585 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:35,454 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:35,454 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:35,469 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:36,323 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:36,323 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:36,338 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:37,150 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:37,150 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:37,162 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:38,019 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:38,019 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:38,033 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:38,828 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:38,837 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:38,853 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:39,914 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:39,915 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:39,931 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:40,766 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:40,767 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:40,782 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:41,571 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:41,571 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:41,583 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:42,516 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:42,516 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:42,531 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:43,372 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:43,372 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:43,388 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:44,413 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:44,427 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:44,443 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:45,354 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:45,354 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:45,369 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:46,311 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:46,311 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:46,325 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:47,122 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:47,132 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:47,147 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:47,971 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:47,971 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:47,986 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:48,811 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:48,811 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:48,826 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:49,657 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:49,658 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:49,671 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:50,558 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:50,558 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:50,574 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:51,478 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:51,478 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:51,492 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:52,422 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:52,422 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:52,438 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:53,223 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:53,224 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:53,237 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:54,055 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:54,055 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:54,070 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:54,875 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:54,876 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:54,889 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:55,666 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:55,666 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:55,678 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:56,528 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:56,528 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:56,541 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:57,373 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:57,373 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:57,388 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:58,221 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:58,221 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:58,235 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:59,053 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:59,053 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:59,068 - LoggerGames - INFO - **********************************************************************
+2023-08-13 17:13:59,871 - LoggerGames - INFO - counts: ---------------------------------
+2023-08-13 17:13:59,871 - LoggerGames - INFO - active players: 1 Active Friends: 0 Retirarse: 0 Subir: 0
+2023-08-13 17:13:59,885 - LoggerGames - INFO - **********************************************************************

@@ -112,12 +112,12 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
         print(f'fuerzas: {forces}')
 
         if phase == 'Pre-Flop' and len(forces) > 0:
-            if forces[1] > forces[0] >= 0.7 and forces[1] >= 0.9:
+            if forces[0] > my_force >= 0.7 and forces[0] >= 0.9:
                 print('accion conjunta: call')
                 return 'call'
 
         if phase in ['Flop', 'Turn', 'River'] and len(forces) > 0:
-            if forces[1] > forces[0] >= 0.6 and forces[1] >= 0.8:
+            if forces[0] > my_force >= 0.6 and forces[0] >= 0.8:
                 print('accion conjunta: bet')
                 return 'bet'
 
@@ -220,7 +220,6 @@ while True:
                     all_friend_cards.extend(friend_cards)
                     friend['hand'] = friend_cards
 
-                    print(f"Friend: {friend} cards: {friend_cards} type: {type(friend_cards)}")
                     # calcular fuerza de la mano de cada amigo
 
             # guardar accion
