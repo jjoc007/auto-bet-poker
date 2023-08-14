@@ -112,7 +112,7 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
         print(f'fuerzas: {forces}')
 
         if friends_active > 0 and phase == 'Pre-Flop' and len(forces) > 1:
-            if forces[1] > my_force >= 0.7 and forces[1] >= 0.9:
+            if forces[1] > my_force >= 0.75 and forces[1] >= 0.9:
                 print('accion conjunta: call')
                 return 'call'
 
