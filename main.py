@@ -111,12 +111,12 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
         # calcula accion segun fuerza conjunta
         print(f'fuerzas: {forces}')
 
-        if phase == 'Pre-Flop' and len(forces) > 1:
+        if friends_active > 0 and phase == 'Pre-Flop' and len(forces) > 1:
             if forces[1] > my_force >= 0.7 and forces[1] >= 0.9:
                 print('accion conjunta: call')
                 return 'call'
 
-        if phase in ['Flop', 'Turn', 'River'] and len(forces) > 1:
+        if friends_active > 0 and phase in ['Flop', 'Turn', 'River'] and len(forces) > 1:
             if forces[1] > my_force >= 0.6 and forces[1] >= 0.8:
                 print('accion conjunta: bet')
                 return 'bet'
