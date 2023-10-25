@@ -102,25 +102,25 @@ def determine_simple_action(has_raised,  phase, force):
         if 0.9 <= force <= 1.0:
             return 'bet'
     if phase == 'Flop':
-        if 0 <= force < 0.75:
+        if 0 <= force < 0.85:
             return 'fold'
-        if 0.75 <= force < 0.9:
+        if 0.85 <= force < 0.9:
             return 'bet'
         if 0.9 <= force <= 1.0:
             return 'bet'
     if phase == 'Turn':
-        if 0 <= force < 0.75:
+        if 0 <= force < 0.85:
             return 'fold'
-        if 0.75 <= force < 0.8:
+        if 0.85 <= force < 0.9:
             return 'bet'
-        if 0.8 <= force <= 0.9:
+        if 0.9 <= force <= 0.95:
             return 'call'
-        if 0.9 <= force <= 1.0:
+        if 0.95 <= force <= 1.0:
             return 'bet'
     if phase == 'River':
-        if 0 <= force < 0.8:
+        if 0 <= force < 0.85:
             return 'fold'
-        if 0.8 <= force <= 0.9:
+        if 0.85 <= force <= 0.9:
             return 'call'
         if 0.9 <= force <= 1.0:
             return 'bet'

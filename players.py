@@ -13,6 +13,7 @@ class Player:
         self.card_1 = card_1
         self.card_2 = card_2
 
+
 class BetPlayer:
     def __init__(self, bet, ante, stack):
         self.bet = bet
@@ -37,7 +38,6 @@ def get_players_info(driver):
 
     for player in players:
         try:
-            # position
             class_list = player.get_attribute('class')
             classes = class_list.split()  # esto divide la lista de clases en elementos individuales
             seat_class = [s for s in classes if s.startswith('s-')]
@@ -51,7 +51,8 @@ def get_players_info(driver):
             name = player.find_element(By.CLASS_NAME, 'player-name')
             player_name = name.text
 
-            rating_items = player.find_elements(By.XPATH, ".//div[contains(@class, 'rating-item') and not(contains(@class, 'empty'))]")
+            rating_items = player.find_elements(By.XPATH,
+                                                ".//div[contains(@class, 'rating-item') and not(contains(@class, 'empty'))]")
             player_ranking = len(rating_items)
 
             player_information = Player(player_name, player_ranking)
@@ -76,6 +77,9 @@ def get_players_action(driver, my_user, cards_df):
             position = -1
             if seat_class:  # comprueba si encontramos una clase que comienza con 's-'
                 position = seat_class[0].split('-')[1]  # toma el número después de 's-'
+
+            # busca la clase que comienza con 's-'
+            seat_class = [s for s in classes if s.startswith('s-')]
 
             name = player.find_element(By.CLASS_NAME, 'player-name')
             player_name = name.text
@@ -118,8 +122,8 @@ def get_players_action(driver, my_user, cards_df):
             else:
                 player_action = None
 
-            #bets
-            #bet
+            # bets
+            # bet
             bet_table = driver.find_element(By.CSS_SELECTOR, ".r-table-chips-layer")
 
             bet_parent_element = bet_table.find_element(By.CSS_SELECTOR, f".r-player-bet.s-{position}")
@@ -149,3 +153,14 @@ def find_me(player_information):
             return pi.player, pi
     print("No estoy jugando")
     return None, None
+
+
+def get_position_player(player):
+    positions = [
+        "BTN",
+        "CO",
+        "HJ",
+        "UTG",
+        "BB",
+        "SB"
+    ]

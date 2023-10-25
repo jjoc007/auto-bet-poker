@@ -1,10 +1,8 @@
-import logging
 from selenium import webdriver
 from game import *
-import random
 import ast
 import requests
-import json
+import pandas as pd
 
 from players import *
 from deteccion_fase import *
@@ -17,22 +15,6 @@ import time
 
 my_player = os.environ.get('MY_PLAYER')
 my_friends = [os.environ.get('MY_FRIEND')]
-
-# Configura el logging para el primer archivo
-logger_games = logging.getLogger('LoggerGames')
-logger_games.setLevel(logging.INFO)
-handler1 = logging.FileHandler('games.log')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler1.setFormatter(formatter)
-logger_games.addHandler(handler1)
-
-# Configura el logging para el segundo archivo
-logger_friends = logging.getLogger('LoggerFriends')
-logger_friends.setLevel(logging.INFO)
-handler2 = logging.FileHandler('friends.log')
-handler2.setFormatter(formatter)
-logger_friends.addHandler(handler2)
-
 
 def translate_card(card_play):
     s, v = card_play.split("_")
@@ -57,7 +39,7 @@ url = "https://betplay.com.co/"
 # url = "file:///Users/jorjuela/Documents/bets/poker-chat/examples/players.html"
 
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
 driver.get(url)
 
 # esperar suficiente tiempo mientras abro la pagina de poker
@@ -69,7 +51,7 @@ templates = load_cards()
 
 cards_df = pd.read_csv('cards64/cards.csv')
 
-iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c94]')
+iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c92]')
 driver.switch_to.frame(iframe)
 
 
@@ -128,6 +110,7 @@ def calculate_friends_force(players_in_game, friends_in_game, friends_active, my
 while True:
     # detectar juego
     game_id = detect_game(driver)
+    cards_df = pd.read_csv('cards64/cards.csv')
     if game_id == 0:
         continue
     # detectar jugadores y cargar informacion de jugadores
@@ -135,23 +118,23 @@ while True:
 
     # guardar juego con jugadores
     insert_game(game_id, players_information)
-    soy_ciega_pequena = False
     my_cards_published = False
     all_friend_cards = []
     while True:
         # detectar fase
         perform_blinds(driver)
         sentarme(driver)
-        cards_df = pd.read_csv('cards64/cards.csv')
+
         phase, cards = phase_detect(driver, cards_df)
         if phase is None or cards is None:
             continue
 
         # detectar acciones de los jugadores
         players_action_information = get_players_action(driver, my_player, cards_df)
+        active_players = len(players_action_information)
+
         r_n = 0
         s_n = 0
-        active_players = len(players_action_information)
         active_friends = 0
         present_friends = []
         for pi in players_action_information:
@@ -177,14 +160,13 @@ while True:
                     "active": friend_active
                 })
 
-        logger_games.info(f"counts: ---------------------------------")
-        logger_games.info(f"active players: {active_players} Active Friends: {active_friends} Retirarse: {r_n} Subir: {s_n}")
+        print(f"counts: ---------------------------------")
+        print(f"active players: {active_players} Active Friends: {active_friends} Retirarse: {r_n} Subir: {s_n}")
 
         # detectar juego completo y generar probabilidad
-
         me, me_action = find_me(players_action_information)
         if me is not None and me.card_1 is not None and me.card_2 is not None:
-            if not my_cards_published:
+            if False: # por el momento no es necesario publicar cartas not my_cards_published:
                 url_post = "https://xnf9a82pmf.execute-api.us-east-1.amazonaws.com/pro/postresource"
 
                 payload = json.dumps({
@@ -201,8 +183,8 @@ while True:
                 if response.status_code == 200:
                     my_cards_published = True
 
-            logger_games.info("my games status: ---------------------------------------")
-            logger_games.info(f'hand cards: c1: {me.card_1} c2: {me.card_2} table cards: {cards}')
+            print("my games status: ---------------------------------------")
+            print(f'hand cards: c1: {me.card_1} c2: {me.card_2} table cards: {cards}')
             if phase != 'Pre-Flop' and len(cards) < 3:
                 continue
 
@@ -243,14 +225,41 @@ while True:
             if accion is None:
                 accion = determine_simple_action(s_n > 0, phase, force)
 
-            print(f"FM: {force} A: {accion}  RB: {required_bet} MC: {my_cash}")
-            perform_action(driver, accion)
+            if force < 0.7 and phase == 'Pre-Flop':
+                perform_action(driver, 'fold')
+            else:
+                if force >= 0.9:
+                    if phase == 'Pre-Flop':
+                        perform_custom_action(driver, '3BB')
+                    else:
+                        perform_custom_action(driver, 'pozo')
+                elif force >= 0.8:
+                    if phase == 'Pre-Flop':
+                        perform_action(driver, 'call')
+                    else:
+                        perform_custom_action(driver, 'pozo')
+                elif force >= 0.7:
+                    if phase == 'Pre-Flop' and required_bet <= 500:
+                        perform_action(driver, 'call')
+                    elif phase == 'Pre-Flop' and required_bet > 500:
+                        perform_action(driver, 'fold')
+                    elif phase != 'Pre-Flop' and required_bet <= 1500:
+                        perform_action(driver, 'call')
+                    elif phase != 'Pre-Flop' and required_bet > 1500:
+                        perform_action(driver, 'fold')
+                    else:
+                        perform_action(driver, 'fold')
+                else:
+                    print(f"No hay acciones")
+                    perform_action(driver, 'fold')
+
+            print(f"FM: {force} RB: {required_bet} MC: {my_cash}")
 
         new_game_id = detect_game(driver)
-        logger_games.info("**********************************************************************")
+        print("**********************************************************************")
         if new_game_id != game_id:
-            logger_games.info(f"juego nuevo id: {new_game_id}")
+            print(f"juego nuevo id: {new_game_id}")
             break  # hay un juego nuevo
-        time.sleep(0.5)
+        time.sleep(3)
 
 driver.quit()

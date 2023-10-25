@@ -6,7 +6,7 @@ from io import BytesIO
 
 
 def capture_screenshot(driver):
-    image_id =uuid.uuid4()
+    image_id = uuid.uuid4()
     screenshot = driver.get_screenshot_as_png()
     image = Image.open(BytesIO(screenshot))
     screenshot_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)

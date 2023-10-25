@@ -21,12 +21,6 @@ def translate_cards(play_cards):
         c.append(translate_card(card))
     return c
 
-
-hand_1 = [
-    'T_A',
-    'C_T'
-]
-
 friend_cards_1 = ['C_A','P_A']
 
 hand_2 = [
@@ -39,12 +33,16 @@ friend_cards_2 = [
     'C_T'
 ]
 
+hand_1 = [
+    'P_3',
+    'C_A'
+]
+
 table = [
-    'T_3',
-    'T_T',
-    'P_5',
-    'C_5',
-    'T_5',
+'C_2',
+'T_4',
+'P_4',
+'D_A'
 ]
 
 
@@ -53,7 +51,20 @@ table = [
 force_hand = HandEvaluator.evaluate_hand([translate_card(hand_1[1]), translate_card(hand_1[0])], board=[], friend_cards=[]) # 0.9212244897959184
 force_table = HandEvaluator.evaluate_hand([translate_card(hand_1[0]), translate_card(hand_1[1])],
                                           board=translate_cards(table)) #0.8589269195189639
+print(force_hand)
+print(force_table)
 
+
+
+
+
+
+
+
+
+'''
+force_table = HandEvaluator.evaluate_hand([translate_card(hand_1[0]), translate_card(hand_1[1])],
+                                          board=translate_cards(table)) #0.8589269195189639
 print(f"force hand:  {force_hand}")
 print(f"force table: {force_table}")
 
@@ -86,3 +97,4 @@ force_table = HandEvaluator.evaluate_hand([translate_card(hand_2[0]), translate_
 
 print(f"force hand:  {force_hand}")
 print(f"force table: {force_table}")
+'''

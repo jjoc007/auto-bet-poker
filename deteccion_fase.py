@@ -1,14 +1,9 @@
+import os
+import re
 import uuid
-
 import cv2
-import numpy as np
-import pandas as pd
-import os, re
-
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
-
-
 
 palos = {
     'C': 1,
