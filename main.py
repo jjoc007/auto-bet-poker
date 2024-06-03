@@ -1,6 +1,7 @@
 from selenium import webdriver
 from game import *
 import ast
+import json
 import requests
 import pandas as pd
 
@@ -15,6 +16,59 @@ import time
 
 my_player = os.environ.get('MY_PLAYER')
 my_friends = [os.environ.get('MY_FRIEND')]
+
+
+def pre_flop_action(force, required_bet, aggressive_opponents, passive_opponents):
+    """
+    Toma una decisión durante la fase Pre-Flop.
+    """
+    if force < 0.85:
+        return 'fold'
+    elif 0.85 <= force < 0.9:
+        return 'call'
+    elif force >= 0.9:
+        if aggressive_opponents < 2:
+            return 'raise'
+        else:
+            return 'call'
+    else:
+        return 'fold'
+
+def post_flop_action(force, required_bet, pot, aggressive_opponents, passive_opponents):
+    """
+    Toma una decisión durante las fases Post-Flop (Flop, Turn, River).
+    """
+    if force < 0.85:
+        return 'fold'
+    elif 0.85 <= force < 0.93:
+        if required_bet <= pot / 4:  # Ajuste conservador
+            return 'call'
+        else:
+            return 'fold'
+    elif force >= 0.93:
+        if aggressive_opponents == 0:
+            if pot >= required_bet:
+                return 'call'  # Evita el riesgo de 'all-in'
+            else:
+                return 'raise'
+        else:
+            return 'call' if pot >= required_bet else 'fold'
+    else:
+        return 'fold'
+
+def make_decision(force, phase, required_bet, pot, player_data):
+    """
+    Toma una decisión basada en la fuerza de la mano, la fase del juego,
+    la apuesta requerida, el tamaño del bote y las acciones de los otros jugadores.
+    """
+    aggressive_opponents = sum(1 for player in player_data if player.action in ["Apostar", "Subir"])
+    passive_opponents = sum(1 for player in player_data if player.action in ["Igualar", "Retirarse"])
+
+    if phase == 'Pre-Flop':
+        return pre_flop_action(force, required_bet, aggressive_opponents, passive_opponents)
+    else:
+        return post_flop_action(force, required_bet, pot, aggressive_opponents, passive_opponents)
+
 
 def translate_card(card_play):
     s, v = card_play.split("_")
@@ -38,7 +92,6 @@ def translate_cards(play_cards):
 url = "https://betplay.com.co/"
 # url = "file:///Users/jorjuela/Documents/bets/poker-chat/examples/players.html"
 
-
 driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
 driver.get(url)
 
@@ -51,7 +104,7 @@ templates = load_cards()
 
 cards_df = pd.read_csv('cards64/cards.csv')
 
-iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c92]')
+iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c95]')
 driver.switch_to.frame(iframe)
 
 
@@ -124,6 +177,7 @@ while True:
         # detectar fase
         perform_blinds(driver)
         sentarme(driver)
+        pozo_total = detect_pozo(driver)
 
         phase, cards = phase_detect(driver, cards_df)
         if phase is None or cards is None:
@@ -133,19 +187,13 @@ while True:
         players_action_information = get_players_action(driver, my_player, cards_df)
         active_players = len(players_action_information)
 
-        r_n = 0
-        s_n = 0
         active_friends = 0
         present_friends = []
+        print(f"Game: {game_id} Phase: {phase} Table Cards: {cards} Pot: {pozo_total}")
         for pi in players_action_information:
+            # print(json.dumps(pi.to_dict()))
             # impresion de acciones
             insert_action(game_id, phase, cards, pi)
-            # Contando acciones
-            if pi.action == 'Retirarse' and pi.player.me is False:
-                r_n += 1
-                active_players = active_players - 1
-            elif pi.action in ['Subir', 'Apostar'] and pi.player.me is False:
-                s_n += 1
 
             if pi.player.name in my_friends:
                 friend_active = False
@@ -159,9 +207,6 @@ while True:
                     "force": None,
                     "active": friend_active
                 })
-
-        print(f"counts: ---------------------------------")
-        print(f"active players: {active_players} Active Friends: {active_friends} Retirarse: {r_n} Subir: {s_n}")
 
         # detectar juego completo y generar probabilidad
         me, me_action = find_me(players_action_information)
@@ -184,7 +229,7 @@ while True:
                     my_cards_published = True
 
             print("my games status: ---------------------------------------")
-            print(f'hand cards: c1: {me.card_1} c2: {me.card_2} table cards: {cards}')
+
             if phase != 'Pre-Flop' and len(cards) < 3:
                 continue
 
@@ -212,54 +257,36 @@ while True:
                 force = HandEvaluator.evaluate_hand([translate_card(me.card_1), translate_card(me.card_2)],
                                                     board=translate_cards(cards),
                                                     friend_cards=translate_cards(all_friend_cards))
+            print(f'name: jjoc007 my hand cards: c1: {me.card_1} c2: {me.card_2} table cards: {cards}')
 
             accion = None
             if len(present_friends) > 0:
                 accion = calculate_friends_force(active_players, present_friends, active_friends, [me.card_1, me.card_2], force, cards, phase)
 
-            pozo_total = detect_pozo(driver)
+
             required_bet = get_current_bet(driver)
             my_cash = me_action.actual_cash
             cash_total = my_cash
             # calcular accion con base en la fuerza de cada amigo
             if accion is None:
-                accion = determine_simple_action(s_n > 0, phase, force)
+                accion = determine_simple_action(phase, force)
 
-            if force < 0.7 and phase == 'Pre-Flop':
+            accion = make_decision(force,phase,required_bet,pozo_total, players_action_information)
+
+            if accion is None:
+                print(f"No hay acciones")
                 perform_action(driver, 'fold')
             else:
-                if force >= 0.9:
-                    if phase == 'Pre-Flop':
-                        perform_custom_action(driver, '3BB')
-                    else:
-                        perform_custom_action(driver, 'pozo')
-                elif force >= 0.8:
-                    if phase == 'Pre-Flop':
-                        perform_action(driver, 'call')
-                    else:
-                        perform_custom_action(driver, 'pozo')
-                elif force >= 0.7:
-                    if phase == 'Pre-Flop' and required_bet <= 500:
-                        perform_action(driver, 'call')
-                    elif phase == 'Pre-Flop' and required_bet > 500:
-                        perform_action(driver, 'fold')
-                    elif phase != 'Pre-Flop' and required_bet <= 1500:
-                        perform_action(driver, 'call')
-                    elif phase != 'Pre-Flop' and required_bet > 1500:
-                        perform_action(driver, 'fold')
-                    else:
-                        perform_action(driver, 'fold')
-                else:
-                    print(f"No hay acciones")
-                    perform_action(driver, 'fold')
+                print(f"Accion: {accion} ")
+                perform_action(driver, accion)
 
-            print(f"FM: {force} RB: {required_bet} MC: {my_cash}")
+            print(f"Force of my hand: {force} RB: {required_bet}")
 
         new_game_id = detect_game(driver)
         print("**********************************************************************")
         if new_game_id != game_id:
             print(f"juego nuevo id: {new_game_id}")
             break  # hay un juego nuevo
-        time.sleep(3)
+        time.sleep(10)
 
 driver.quit()

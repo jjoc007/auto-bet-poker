@@ -5,20 +5,31 @@ import re
 
 
 class Player:
-    def __init__(self, name, ranking, cash=0, me=False, card_1=None, card_2=None):
+    def __init__(self, name, cash=0, me=False, card_1=None, card_2=None):
         self.name = name
-        self.ranking = ranking
         self.cash = cash
         self.me = me
         self.card_1 = card_1
         self.card_2 = card_2
 
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'cash': self.cash,
+            'me': self.me,
+            'card_1': self.card_1,
+            'card_2': self.card_2
+        }
+
 
 class BetPlayer:
-    def __init__(self, bet, ante, stack):
+    def __init__(self, bet):
         self.bet = bet
-        self.ante = ante
-        self.stack = stack
+
+    def to_dict(self):
+        return {
+            'bet': self.bet
+        }
 
 
 class ActionPlayer:
@@ -30,6 +41,15 @@ class ActionPlayer:
         if self.action is None:
             self.action = ''
         self.bet_player = bet_player
+
+    def to_dict(self):
+        return {
+            'p': self.position,
+            'player': self.player.to_dict() if self.player is not None else None,
+            'action': self.action,
+            'actual_cash': self.actual_cash,
+            'bet_player': self.bet_player.to_dict() if self.bet_player is not None else None
+        }
 
 
 def get_players_info(driver):
@@ -51,11 +71,7 @@ def get_players_info(driver):
             name = player.find_element(By.CLASS_NAME, 'player-name')
             player_name = name.text
 
-            rating_items = player.find_elements(By.XPATH,
-                                                ".//div[contains(@class, 'rating-item') and not(contains(@class, 'empty'))]")
-            player_ranking = len(rating_items)
-
-            player_information = Player(player_name, player_ranking)
+            player_information = Player(player_name)
             players_info.append(player_information)
         except NoSuchElementException:
             pass
@@ -106,14 +122,10 @@ def get_players_action(driver, my_user, cards_df):
                     card_hand_1 = detected_cards[0]
                     card_hand_2 = detected_cards[1]
 
-            rating_items = player.find_elements(By.XPATH,
-                                                ".//div[contains(@class, 'rating-item') and not(contains(@class, 'empty'))]")
-            player_ranking = len(rating_items)
-
             cash = player.find_element(By.CLASS_NAME, 'player-cash')
             player_cash = cash.text
 
-            player_information = Player(player_name, player_ranking, player_cash, me, card_hand_1, card_hand_2)
+            player_information = Player(player_name, player_cash, me, card_hand_1, card_hand_2)
 
             action_elements = player.find_elements(By.CLASS_NAME, 'player-action')
             if action_elements:
@@ -130,15 +142,7 @@ def get_players_action(driver, my_user, cards_df):
             bet_child_element = bet_parent_element.find_element(By.CSS_SELECTOR, ".r-player-bet-content")
             bet = bet_child_element.text
 
-            ante_parent_element = bet_table.find_element(By.CSS_SELECTOR, f".r-player-ante.s-{position}")
-            ante_child_element = ante_parent_element.find_element(By.CSS_SELECTOR, ".r-player-ante-content")
-            ante = ante_child_element.text
-
-            stack_parent_element = bet_table.find_element(By.CSS_SELECTOR, f".r-player-stack.s-{position}")
-            stack_child_element = stack_parent_element.find_element(By.CSS_SELECTOR, ".r-player-stack-content")
-            stack = stack_child_element.text
-
-            bets = BetPlayer(bet, ante, stack)
+            bets = BetPlayer(bet)
 
             player_action_information = ActionPlayer(position, player_information, player_action, player_cash, bets)
             players_info.append(player_action_information)

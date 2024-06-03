@@ -131,8 +131,8 @@ def insert_player(player):
     if get_player(player.name) is None:
         try:
             cursor = mydb.cursor()
-            query = ("INSERT INTO poker.player (name, rating) VALUES(%s, %s)")
-            cursor.execute(query, (player.name, player.ranking))
+            query = ("INSERT INTO poker.player (name) VALUES(%s)")
+            cursor.execute(query, (player.name,))
             mydb.commit()
             cursor.close()
         except mysql.connector.Error as err:
@@ -180,8 +180,8 @@ def insert_game(game_id, players_information):
 def has_action(game_id, phase, player_action):
     try:
         cursor = mydb.cursor()
-        query = ("SELECT COUNT(*) FROM player_action WHERE game_id = %s AND phase = %s AND player_action = %s AND player_name = %s AND cash = %s AND bet = %s AND ante = %s AND stack = %s")
-        cursor.execute(query, (game_id, phase, player_action.action, player_action.player.name, player_action.actual_cash, player_action.bet_player.bet, player_action.bet_player.ante, player_action.bet_player.stack))
+        query = ("SELECT COUNT(*) FROM player_action WHERE game_id = %s AND phase = %s AND player_action = %s AND player_name = %s AND cash = %s AND bet = %s")
+        cursor.execute(query, (game_id, phase, player_action.action, player_action.player.name, player_action.actual_cash, player_action.bet_player.bet))
         if cursor.fetchone()[0] > 0:
             return True
         return False
@@ -216,8 +216,8 @@ def insert_action(game_id, phase, cards, player_action):
             card_5 = cards[4]
 
         # Check if the record already exists
-        query = ("INSERT INTO poker.player_action (player_name, phase, player_action, game_id, card_1, card_2, card_3, card_4, card_5, cash, position, bet, ante, stack) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
-        cursor.execute(query, (player_action.player.name, phase, player_action.action, game_id, card_1, card_2, card_3, card_4, card_5, player_action.actual_cash, player_action.position, player_action.bet_player.bet, player_action.bet_player.ante, player_action.bet_player.stack))
+        query = ("INSERT INTO poker.player_action (player_name, phase, player_action, game_id, card_1, card_2, card_3, card_4, card_5, cash, position, bet) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
+        cursor.execute(query, (player_action.player.name, phase, player_action.action, game_id, card_1, card_2, card_3, card_4, card_5, player_action.actual_cash, player_action.position, player_action.bet_player.bet))
         mydb.commit()
 
         cursor.close()

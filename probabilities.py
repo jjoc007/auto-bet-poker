@@ -93,7 +93,7 @@ def count_profiles(player_actions_by_phase, phase):
         most_common_profile, count = profile_list[0]
         return most_common_profile
 
-def determine_simple_action(has_raised,  phase, force):
+def determine_simple_action(phase, force):
     if phase == 'Pre-Flop':
         if 0 <= force < 0.75:
             return 'fold'
