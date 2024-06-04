@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import re
+import json
 
 
 def detect_game(driver):
@@ -40,3 +41,9 @@ def get_current_bet(driver):
         return bet_value
     except Exception as e:
         return 0
+
+
+def read_blinds():
+    with open('config.json', 'r') as archivo_json:
+        contenido = archivo_json.read()
+        return json.loads(contenido)

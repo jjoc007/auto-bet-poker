@@ -17,57 +17,51 @@ import time
 my_player = os.environ.get('MY_PLAYER')
 my_friends = [os.environ.get('MY_FRIEND')]
 
-
-def pre_flop_action(force, required_bet, aggressive_opponents, passive_opponents):
-    """
-    Toma una decisión durante la fase Pre-Flop.
-    """
-    if force < 0.85:
-        return 'fold'
-    elif 0.85 <= force < 0.9:
-        return 'call'
-    elif force >= 0.9:
-        if aggressive_opponents < 2:
-            return 'raise'
-        else:
-            return 'call'
-    else:
-        return 'fold'
-
-def post_flop_action(force, required_bet, pot, aggressive_opponents, passive_opponents):
-    """
-    Toma una decisión durante las fases Post-Flop (Flop, Turn, River).
-    """
-    if force < 0.85:
-        return 'fold'
-    elif 0.85 <= force < 0.93:
-        if required_bet <= pot / 4:  # Ajuste conservador
-            return 'call'
-        else:
-            return 'fold'
-    elif force >= 0.93:
-        if aggressive_opponents == 0:
-            if pot >= required_bet:
-                return 'call'  # Evita el riesgo de 'all-in'
-            else:
-                return 'raise'
-        else:
-            return 'call' if pot >= required_bet else 'fold'
-    else:
-        return 'fold'
-
-def make_decision(force, phase, required_bet, pot, player_data):
+def make_decision(force, phase, required_bet, pot, player_data, blinds, my_cash):
     """
     Toma una decisión basada en la fuerza de la mano, la fase del juego,
     la apuesta requerida, el tamaño del bote y las acciones de los otros jugadores.
     """
+    M = (my_cash / (blinds['big_blind'] + blinds['small_blind'] + blinds['ante']))
     aggressive_opponents = sum(1 for player in player_data if player.action in ["Apostar", "Subir"])
-    passive_opponents = sum(1 for player in player_data if player.action in ["Igualar", "Retirarse"])
 
+    # Ajustar los umbrales según el valor M, la fase del juego y el ante
     if phase == 'Pre-Flop':
-        return pre_flop_action(force, required_bet, aggressive_opponents, passive_opponents)
-    else:
-        return post_flop_action(force, required_bet, pot, aggressive_opponents, passive_opponents)
+        if M <= 5 or blinds['ante'] >= 0.1 * pot:
+            fold_threshold = 0.95
+            call_threshold = 0.98
+        elif M <= 10:
+            fold_threshold = 0.90
+            call_threshold = 0.95
+        else:
+            fold_threshold = 0.85
+            call_threshold = 0.90
+    else:  # Post-Flop
+        if M <= 5 or blinds['ante'] >= 0.05 * pot:
+            fold_threshold = 0.90
+            call_threshold = 0.95
+        elif M <= 10:
+            fold_threshold = 0.85
+            call_threshold = 0.93
+        else:
+            fold_threshold = 0.80
+            call_threshold = 0.90
+
+    print(f"BB: {blinds['big_blind']}, SB:{blinds['small_blind']}, ante:{blinds['ante']}, pot:{pot}, cash:{my_cash}")
+    print(f"M: {M}, aggressive_opponents:{aggressive_opponents}, fold_threshold:{fold_threshold}, call_threshold:{call_threshold}, ")
+    # Tomar la decisión
+    if force < fold_threshold:
+        return 'fold'
+    elif fold_threshold <= force < call_threshold:
+        if required_bet <= pot / 4:  # Ajuste conservador en general
+            return 'call'
+        else:
+            return 'fold'
+    elif force >= call_threshold:
+        if aggressive_opponents >= 2 and required_bet > pot / 2:
+            return 'call'  # Juega más conservador contra múltiples oponentes agresivos
+        else:
+            return 'raise' if pot >= required_bet else 'call'
 
 
 def translate_card(card_play):
@@ -178,6 +172,7 @@ while True:
         perform_blinds(driver)
         sentarme(driver)
         pozo_total = detect_pozo(driver)
+        blinds = read_blinds()
 
         phase, cards = phase_detect(driver, cards_df)
         if phase is None or cards is None:
@@ -271,7 +266,7 @@ while True:
             if accion is None:
                 accion = determine_simple_action(phase, force)
 
-            accion = make_decision(force,phase,required_bet,pozo_total, players_action_information)
+            accion = make_decision(force, phase, required_bet, pozo_total, players_action_information, blinds, my_cash)
 
             if accion is None:
                 print(f"No hay acciones")
@@ -287,6 +282,6 @@ while True:
         if new_game_id != game_id:
             print(f"juego nuevo id: {new_game_id}")
             break  # hay un juego nuevo
-        time.sleep(10)
+        time.sleep(20)
 
 driver.quit()
