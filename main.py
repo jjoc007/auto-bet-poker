@@ -22,7 +22,7 @@ def make_decision(force, phase, required_bet, pot, player_data, blinds, my_cash)
     Toma una decisión basada en la fuerza de la mano, la fase del juego,
     la apuesta requerida, el tamaño del bote y las acciones de los otros jugadores.
     """
-    M = (my_cash / (blinds['big_blind'] + blinds['small_blind'] + blinds['ante']))
+    M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
     aggressive_opponents = sum(1 for player in player_data if player.action in ["Apostar", "Subir"])
 
     # Ajustar los umbrales según el valor M, la fase del juego y el ante
@@ -172,7 +172,7 @@ while True:
         perform_blinds(driver)
         sentarme(driver)
         pozo_total = detect_pozo(driver)
-        blinds = read_blinds()
+        blinds = detect_blinds(driver)
 
         phase, cards = phase_detect(driver, cards_df)
         if phase is None or cards is None:

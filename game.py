@@ -27,6 +27,28 @@ def detect_pozo(driver):
         print(f"An error occurred detect_pozo: {e}")
         return 0
 
+def detect_blinds(driver):
+    try:
+        bank_text = driver.find_elements(By.CLASS_NAME, 'tournament_table_name')
+        patron = r"Niveles:\s*(\d+)\s*/\s*(\d+)(?:\s*ante\s*(\d+))?"
+        match = re.search(patron, bank_text[0].text)
+
+        if match:
+            bb = int(match.group(2))
+            ante = int(match.group(3)) if match.group(3) else 0  # Si no hay ante, asignamos 0
+            return {
+                "big_blind": bb,
+                "ante": ante
+            }
+        else:
+            return None, None
+    except Exception as e:  # Esto captura cualquier tipo de excepción
+        print(f"An error occurred detect_blinds: {e}")
+        return {
+                "big_blind": 10000,
+                "ante": 0
+            }
+
 
 def get_current_bet(driver):
     try:
