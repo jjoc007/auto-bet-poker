@@ -111,7 +111,8 @@ def translate_cards(play_cards):
 url = "https://betplay.com.co/"
 # url = "file:///Users/jorjuela/Documents/bets/poker-chat/examples/players.html"
 
-driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
+# driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
+driver = webdriver.Chrome()
 driver.get(url)
 
 # esperar suficiente tiempo mientras abro la pagina de poker
@@ -307,6 +308,6 @@ while True:
         if new_game_id != game_id:
             print(f"juego nuevo id: {new_game_id}")
             break  # hay un juego nuevo
-        time.sleep(20)
+        time.sleep(13)
 
 driver.quit()
