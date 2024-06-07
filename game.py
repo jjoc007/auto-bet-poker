@@ -53,7 +53,8 @@ def detect_blinds(driver):
 def get_current_bet(driver):
     try:
         footer = driver.find_element(By.CLASS_NAME, "table-footer-container")
-        call_component = footer.find_element(By.XPATH, '//div[starts-with(text(), "Igualar")]')
+        call_component = footer.find_element(By.XPATH,
+                                     ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
 
         text = call_component.text
         bet_value_text = text.split('$')[-1]
@@ -62,6 +63,7 @@ def get_current_bet(driver):
         bet_value = float(bet_value.replace(',', ''))  # Removemos las comas en caso de que existan (ej. "1,000")
         return bet_value
     except Exception as e:
+        print(e)
         return 0
 
 
