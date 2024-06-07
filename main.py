@@ -17,39 +17,52 @@ import time
 my_player = os.environ.get('MY_PLAYER')
 my_friends = [os.environ.get('MY_FRIEND')]
 
-def make_decision(force, phase, required_bet, pot, player_data, blinds, my_cash):
-    """
-    Toma una decisión basada en la fuerza de la mano, la fase del juego,
-    la apuesta requerida, el tamaño del bote y las acciones de los otros jugadores.
-    """
-    M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
-    aggressive_opponents = sum(1 for player in player_data if player.action in ["Apostar", "Subir"])
+def make_preflop(M, force, ante, pot, aggressive_opponents, required_bet):
+    if M <= 5 or ante >= 0.1 * pot:
+        fold_threshold = 0.95
+        call_threshold = 0.98
+    elif M <= 10:
+        fold_threshold = 0.90
+        call_threshold = 0.95
+    else:
+        fold_threshold = 0.80
+        call_threshold = 0.88
 
-    # Ajustar los umbrales según el valor M, la fase del juego y el ante
-    if phase == 'Pre-Flop':
-        if M <= 5 or blinds['ante'] >= 0.1 * pot:
-            fold_threshold = 0.95
-            call_threshold = 0.98
-        elif M <= 10:
-            fold_threshold = 0.90
-            call_threshold = 0.95
-        else:
-            fold_threshold = 0.85
-            call_threshold = 0.90
-    else:  # Post-Flop
-        if M <= 5 or blinds['ante'] >= 0.05 * pot:
-            fold_threshold = 0.90
-            call_threshold = 0.95
-        elif M <= 10:
-            fold_threshold = 0.85
-            call_threshold = 0.93
-        else:
-            fold_threshold = 0.80
-            call_threshold = 0.90
+    # Calcular el riesgo relativo de la apuesta requerida
+    risk_factor = required_bet / pot
+    print(
+        f"PREFLOP pot:{pot} req_bet: {required_bet} risk_factor: {risk_factor}")
+    print(
+        f"M: {M}, aggressive_opponents:{aggressive_opponents}, fold_threshold:{fold_threshold}, call_threshold:{call_threshold}")
 
-    print(f"BB: {blinds['big_blind']}, SB:{blinds['small_blind']}, ante:{blinds['ante']}, pot:{pot}, cash:{my_cash}")
-    print(f"M: {M}, aggressive_opponents:{aggressive_opponents}, fold_threshold:{fold_threshold}, call_threshold:{call_threshold}, ")
-    # Tomar la decisión
+
+    if force < fold_threshold:
+        return 'fold'
+    elif fold_threshold <= force < call_threshold:
+        if risk_factor <= 0.25 or (M >= 20 and risk_factor <= 0.5):  # Ajuste más liberal si el riesgo es bajo o M es alto
+            return 'call'
+        else:
+            return 'fold'
+    elif force >= call_threshold:
+        if aggressive_opponents >= 2 and risk_factor > 0.5:
+            return 'call'  # Jugar aún más conservador contra oponentes con M mayor y riesgo alto
+        else:
+            return 'call'  # Priorizar igualar en lugar de subir contra oponentes con M mayor
+
+def make_postflop(M, force, ante, pot, aggressive_opponents, required_bet):
+    if M <= 5 or ante >= 0.05 * pot:
+        fold_threshold = 0.90
+        call_threshold = 0.95
+    elif M <= 10:
+        fold_threshold = 0.85
+        call_threshold = 0.93
+    else:
+        fold_threshold = 0.80
+        call_threshold = 0.90
+
+    print(f"POSTFLOP pot:{pot} req_bet: {required_bet}")
+    print(f"M: {M}, aggressive_opponents:{aggressive_opponents}, fold_threshold:{fold_threshold}, call_threshold:{call_threshold}")
+
     if force < fold_threshold:
         return 'fold'
     elif fold_threshold <= force < call_threshold:
@@ -63,6 +76,18 @@ def make_decision(force, phase, required_bet, pot, player_data, blinds, my_cash)
         else:
             return 'raise' if pot >= required_bet else 'call'
 
+def make_decision(force, phase, required_bet, pot, player_data, blinds, my_cash):
+    """
+    Toma una decisión basada en la fuerza de la mano, la fase del juego,
+    la apuesta requerida, el tamaño del bote y las acciones de los otros jugadores.
+    """
+    M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
+    aggressive_opponents = sum(1 for player in player_data if player.action in ["Apostar", "Subir"])
+
+    if phase == 'Pre-Flop':
+        return make_preflop(M, force, blinds['ante'], pot, aggressive_opponents, required_bet)
+    else:
+        return make_postflop(M, force, blinds['ante'], pot, aggressive_opponents, required_bet)
 
 def translate_card(card_play):
     s, v = card_play.split("_")
