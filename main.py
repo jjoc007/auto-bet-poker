@@ -197,7 +197,7 @@ while True:
         perform_blinds(driver)
         sentarme(driver)
         pozo_total = detect_pozo(driver)
-        blinds = detect_blinds(driver)
+        blinds = read_blinds()
 
         phase, cards = phase_detect(driver, cards_df)
         if phase is None or cards is None:
