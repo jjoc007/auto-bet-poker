@@ -1,7 +1,8 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from game import *
 import ast
-import json
 import requests
 import pandas as pd
 
@@ -14,7 +15,7 @@ from evaluator.hand_evaluator import *
 
 import time
 
-my_player = os.environ.get('MY_PLAYER')
+my_player = "jjoc007" #os.environ.get('MY_PLAYER')
 my_friends = [os.environ.get('MY_FRIEND')]
 
 def make_preflop(M, force, ante, pot, aggressive_opponents, required_bet):
@@ -108,15 +109,47 @@ def translate_cards(play_cards):
     return c
 
 
-url = "https://betplay.com.co/"
+url = "https://betplay.com.co"
+
 # url = "file:///Users/jorjuela/Documents/bets/poker-chat/examples/players.html"
 
 # driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
+# Crea una instancia de Options
+chrome_options = Options()
+chromedriver_path = 'cd/mac/chromedriver'  # Ajusta la ruta si es necesario
+
+# Crea una instancia de Service
+service = Service(executable_path=chromedriver_path)
+
+# Configura las preferencias del perfil
+chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en-US,en'})
+
+# Crea la instancia del driver usando las opciones configuradas
 driver = webdriver.Chrome()
 driver.get(url)
 
+time.sleep(5)
+
+# Encuentra los elementos de usuario y contraseña por su atributo 'id'
+username_field = driver.find_element(By.ID, "userName")
+password_field = driver.find_element(By.ID, "password")
+
+# Llena los campos con tus credenciales
+username_field.send_keys(os.environ.get('USER_LOGIN'))  # Reemplaza con el usuario real
+password_field.send_keys(os.environ.get('USER_PASSWORD'))  # Reemplaza con la contraseña real
+time.sleep(2)
+# Encuentra y haz clic en el botón "Ingresar"
+login_button = driver.find_element(By.ID, "btnLoginPrimary")
+login_button.click()
+
+time.sleep(15)
+
+juega_ya_button = driver.find_element(By.CLASS_NAME, "play-btn")
+juega_ya_button.click()
+
+
 # esperar suficiente tiempo mientras abro la pagina de poker
-for i in range(0, 5):
+for i in range(0, 3):
     print(f"esperando lapso : {i}")
     time.sleep(15)
 
@@ -124,7 +157,7 @@ templates = load_cards()
 
 cards_df = pd.read_csv('cards64/cards.csv')
 
-iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c95]')
+iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c3285601390]')
 driver.switch_to.frame(iframe)
 
 

@@ -1,5 +1,6 @@
 import os
 import re
+import pandas as pd
 import uuid
 import cv2
 from selenium.common import StaleElementReferenceException
@@ -96,7 +97,8 @@ def phase_detect(driver, cards_df):
                     existing_value = cards_df.loc[cards_df['card'] == url_base64, 'value'].values[0]
                     detected_cards.append(existing_value)
                 else:
-                    cards_df = cards_df.append({'card': url_base64, 'value': str(uuid.uuid4())}, ignore_index=True)
+                    new_row = pd.DataFrame({'card': [url_base64], 'value': [str(uuid.uuid4())]})
+                    cards_df = pd.concat([cards_df, new_row], ignore_index=True)
         cards_df.to_csv('cards64/cards.csv', index=False)
 
         return phase, detected_cards
