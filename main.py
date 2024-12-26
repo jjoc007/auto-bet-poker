@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import undetected_chromedriver as uc
 from selenium.webdriver.chrome.service import Service
 from game import *
 import ast
@@ -109,23 +110,22 @@ def translate_cards(play_cards):
     return c
 
 
-url = "https://betplay.com.co"
+url = "https://betplay.com.co/poker"
 
 # url = "file:///Users/jorjuela/Documents/bets/poker-chat/examples/players.html"
 
 # driver = webdriver.Chrome(executable_path='/Users/jorjuela/Documents/bets/poker-chat/chromedriver')
 # Crea una instancia de Options
-chrome_options = Options()
-chromedriver_path = 'cd/mac/chromedriver'  # Ajusta la ruta si es necesario
+options = uc.ChromeOptions()
+# No configures 'excludeSwitches' si no es necesario
+options.add_argument("--disable-extensions")
+options.add_argument("--disable-popup-blocking")
+options.add_argument("--profile-directory=Default")
+options.add_argument("--user-data-dir=/Users/juanorjuela/Library/Application Support/Google/Chrome")
 
-# Crea una instancia de Service
-service = Service(executable_path=chromedriver_path)
+# Inicializa el driver
+driver = uc.Chrome()
 
-# Configura las preferencias del perfil
-chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en-US,en'})
-
-# Crea la instancia del driver usando las opciones configuradas
-driver = webdriver.Chrome()
 driver.get(url)
 
 time.sleep(5)
@@ -341,6 +341,6 @@ while True:
         if new_game_id != game_id:
             print(f"juego nuevo id: {new_game_id}")
             break  # hay un juego nuevo
-        time.sleep(13)
+        time.sleep(5)
 
 driver.quit()
