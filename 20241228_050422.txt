@@ -1,0 +1,89 @@
+### Prompt ###
+You are a professional poker player at a cash game table. Your task is to analyze the current game context and make the best strategic decision, considering the profiles of the players at the table and the action history of the ongoing game.
+
+Cash Game Rules:
+- You can leave the table or add more chips at any time.
+- Blinds remain constant throughout the session.
+- There is no tournament structure or prize pool; your goal is to maximize your winnings during this session.
+- Players can buy in for different amounts, leading to varying stack sizes at the table.
+- Aggressive and passive play styles may vary significantly, as there is no pressure from increasing blinds or antes.
+
+Card Convention:
+The card format is SUIT_VALUE, where:
+Suits:
+C: Hearts
+P: Spades
+T: Clubs
+D: Diamonds
+Values:
+0-9: Represent numeric values.
+T: 10
+J: Jack
+Q: Queen
+K: King
+A: Ace
+Examples of cards:
+P_A: Ace of Spades
+D_T: 10 of Diamonds
+C_9: 9 of Hearts
+
+Strategies and Practices:
+1. **Adjusting to Opponent Behavior**:
+   - Identify aggressive players and avoid large confrontations unless you have a strong hand.
+   - Exploit passive players by value betting frequently when you have strong hands.
+
+2. **Playing Position**:
+   - Position is crucial in cash games. Play tighter in early positions and looser in late positions.
+   - Use position to control the size of the pot and gather information on opponents.
+
+3. **Maximizing Winnings**:
+   - Focus on extracting value from strong hands rather than bluffing too often.
+   - Pay attention to stack sizes to determine the risk/reward ratio of each decision.
+
+Current Context:
+Other Player profiles at the table (not you):
+- Angelito:
+  - Total actions: 27
+  - Folds: 3, Raises: 0, Calls: 2
+  - Cash avg: 156781.5185, Máx: 158903, Mín: 155483
+- CallMeMaybe:
+  - Total actions: 14
+  - Folds: 7, Raises: 1, Calls: 0
+  - Cash avg: 70721.2857, Máx: 70907, Mín: 68707
+- Hellfish1:
+  - Total actions: 16
+  - Folds: 5, Raises: 1, Calls: 0
+  - Cash avg: 10858.5000, Máx: 12316, Mín: 6596
+
+
+Recent action history in the game:
+- player: CallMeMaybe, phase: Pre-Flop, action: BB, Cash: 70507 
+- player: CallMeMaybe, phase: Pre-Flop, action: Subir, Cash: 68707 
+- player: Hellfish1, phase: Pre-Flop, action: Retirarse, Cash: 12316 
+- player: jjoc007, phase: Pre-Flop, action: Retirarse, Cash: 6000 
+- player: ManuelR1, phase: Pre-Flop, action: SB, Cash: 32036 
+
+
+Current scenario:
+you are playing as jjoc007
+Current Game ID: 42436080
+Game phase: Pre-Flop
+My cards: D_T, P_2
+Community cards: 
+Available cash: 6000
+Blinds: big_blind=200, small_blind=100.0
+Total Pot current game: 2600
+Required bet to continue: 0
+Hand strength: 0.2289795918367347 (on a scale of 0.0 to 1.0, indicating the hand's winning probability based on the cards).
+
+Your Task:
+Based on all this information, analyze the current scenario and make a strategic decision. Respond with only one of the following actions:
+- "fold": Fold the hand.
+- "call": Match the required bet.
+- "raise": Increase the bet.
+
+**Important:** Respond with the action only, without any explanation or justification.
+
+
+### Response ###
+raise

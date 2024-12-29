@@ -1,6 +1,8 @@
-from selenium.webdriver.common.by import By
-import re
 import json
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import re
 
 
 def detect_game(driver):
@@ -27,27 +29,44 @@ def detect_pozo(driver):
         print(f"An error occurred detect_pozo: {e}")
         return 0
 
+
 def detect_blinds(driver):
     try:
-        bank_text = driver.find_elements(By.CLASS_NAME, 'tournament_table_name')
-        patron = r"Niveles:\s*(\d+)\s*/\s*(\d+)(?:\s*ante\s*(\d+))?"
-        match = re.search(patron, bank_text[0].text)
+        # Buscar elementos con cada clase por separado
+        element = None
+        try:
+            element = WebDriverWait(driver, 0.1).until(
+                EC.presence_of_element_located((By.CLASS_NAME, 'table-name'))
+            )
+        except Exception:
+            element = WebDriverWait(driver, 0.1).until(
+                EC.presence_of_element_located((By.CLASS_NAME, 'tournament_table_name'))
+            )
 
-        if match:
-            bb = int(match.group(2))
-            ante = int(match.group(3)) if match.group(3) else 0  # Si no hay ante, asignamos 0
-            return {
-                "big_blind": bb,
-                "ante": ante
-            }
+        # Obtener el texto del elemento encontrado
+        if element:
+            bank_text = element.text
+
+            # Patrón para extraer los blinds y ante
+            patron = r"Niveles(?: de apuestas)?:\s*\$?(\d+)\s*/\s*\$?(\d+)(?:\s*ante\s*\$?(\d+))?"
+            match = re.search(patron, bank_text)
+
+            if match:
+                bb = int(match.group(2))
+                ante = int(match.group(3)) if match.group(3) else 0  # Si no hay ante, asignamos 0
+                return {
+                    "big_blind": bb,
+                    "ante": ante
+                }
+            else:
+                print('No se detectaron blinds en el texto proporcionado.')
+                return read_blinds()
         else:
-            return None, None
-    except Exception as e:  # Esto captura cualquier tipo de excepción
-        print(f"An error occurred detect_blinds: {e}")
-        return {
-                "big_blind": 10000,
-                "ante": 0
-            }
+            print('No se encontró ningún elemento con las clases especificadas.')
+            return read_blinds()
+    except Exception as e:
+        print(f"An error occurred in detect_blinds: {e}")
+        return read_blinds()
 
 
 def get_current_bet(driver):
@@ -63,7 +82,6 @@ def get_current_bet(driver):
         bet_value = float(bet_value.replace(',', ''))  # Removemos las comas en caso de que existan (ej. "1,000")
         return bet_value
     except Exception as e:
-        print(e)
         return 0
 
 
@@ -71,3 +89,40 @@ def read_blinds():
     with open('config.json', 'r') as archivo_json:
         contenido = archivo_json.read()
         return json.loads(contenido)
+
+def extract_table_info(driver):
+    """
+    Extrae la información de la mesa (torneo o juego en efectivo) utilizando Selenium y la devuelve como un diccionario.
+    """
+    table_info = {}
+
+    try:
+        # Esperar a que el contenedor principal esté presente
+        wait = WebDriverWait(driver, 0.1)  # Tiempo máximo de espera: 10 segundos
+        container = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "TableInfoContainer__page_content")))
+
+        # Localizar todos los campos dentro del contenedor
+        fields = container.find_elements(By.CLASS_NAME, "table-info-field")
+
+        for field in fields:
+            try:
+                # Extraer el label y el valor de cada campo
+                label_element = field.find_element(By.CLASS_NAME, "table-info-field-label")
+                value_element = field.find_element(By.CLASS_NAME, "table-info-field-value")
+
+                # Normalizar el label para usarlo como clave
+                label = label_element.text.strip()
+                key = label.lower().replace(' ', '_')
+
+                # Obtener el valor
+                value = value_element.text.strip()
+
+                # Guardar en el diccionario
+                table_info[key] = value
+            except Exception as e:
+                print(f"Error procesando un campo: {e}")
+
+    except Exception as e:
+        print(f"Error al extraer información de la mesa")
+
+    return table_info

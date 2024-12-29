@@ -57,6 +57,7 @@ def perform_action(driver, action):
     try:
         if action == 'call':
             try:
+
                 button = footer.find_element(By.XPATH,
                                              ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
                 driver.execute_script("arguments[0].click();", button)
@@ -65,7 +66,7 @@ def perform_action(driver, action):
                                              ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
                 driver.execute_script("arguments[0].click();", button)
 
-        if action == 'raise':
+        elif action == 'raise':
             try:
                 button = footer.find_element(By.XPATH,
                                              ".//div[contains(@class, 'raise_group_actions')]//div[contains(@class, 'SimpleButton__text')]")
@@ -76,11 +77,21 @@ def perform_action(driver, action):
                                                  ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
                     driver.execute_script("arguments[0].click();", button)
                 except Exception as ei:
-                    button = footer.find_element(By.XPATH,
-                                                 ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
-                    driver.execute_script("arguments[0].click();", button)
+                    try:
+                        button = footer.find_element(By.XPATH,
+                                                     ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
+                        driver.execute_script("arguments[0].click();", button)
+                    except Exception as ei:
+                        try:
+                            button = footer.find_element(By.XPATH,
+                                                         ".//div[contains(@class, 'pa-all-in')]//div[contains(@class, 'SimpleButton__text')]")
+                            driver.execute_script("arguments[0].click();", button)
+                        except Exception as ei:
+                                button = footer.find_element(By.XPATH,
+                                                             ".//div[contains(@class, 'pa-fold')]//div[contains(@class, 'SimpleButton__text')]")
+                                driver.execute_script("arguments[0].click();", button)
 
-        if action == 'bet':
+        elif action == 'bet':
             try:
                 button = footer.find_element(By.XPATH,
                                              ".//div[contains(@class, 'raise_group_actions')]//div[contains(@class, 'SimpleButton__text')]")
@@ -99,7 +110,7 @@ def perform_action(driver, action):
                                                      ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")
                         driver.execute_script("arguments[0].click();", button)
 
-        if action == 'fold':
+        elif action == 'fold':
             try:
                 button = footer.find_element(By.XPATH,
                                              ".//div[contains(@class, 'pa-check')]//div[contains(@class, 'SimpleButton__text')]")

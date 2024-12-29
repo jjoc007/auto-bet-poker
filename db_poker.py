@@ -1,9 +1,9 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="192.168.10.14",
     port=3306,
-    user="root",
+    user="admin",
     password="12345678",
     database="poker"
 )
@@ -98,7 +98,6 @@ def has_flop(card_1, card_2, card_3, card_4, card_5, players):
     except mysql.connector.Error as err:
         print("Something went wrong: {}".format(err))
 
-
 def insert_into_flop_many(data):
     try:
         cursor = mydb.cursor()
@@ -112,7 +111,6 @@ def insert_into_flop_many(data):
         cursor.close()
     except mysql.connector.Error as err:
         print("Something went wrong: {}".format(err))
-
 
 def get_player(player_name):
     try:
@@ -251,5 +249,75 @@ def get_phase_actions_by_players(players_name):
         return player_actions_by_phase
     except mysql.connector.Error as err:
         print("Something went wrong: {}".format(err))
+
+
+def get_player_profiles(player_names):
+    try:
+        cursor = mydb.cursor(dictionary=True)
+        formatted_player_names = ', '.join("'" + player + "'" for player in player_names)
+
+        query = f"""
+        SELECT 
+            player_name,
+            COUNT(*) AS total_actions,
+            SUM(CASE WHEN player_action = 'Retirarse' THEN 1 ELSE 0 END) AS total_folds,
+            SUM(CASE WHEN player_action = 'Subir' THEN 1 ELSE 0 END) AS total_raises,
+            SUM(CASE WHEN player_action = 'Igualar' THEN 1 ELSE 0 END) AS total_calls,
+            AVG(CAST(cash AS UNSIGNED)) AS avg_cash,
+            MAX(CAST(cash AS UNSIGNED)) AS max_cash,
+            MIN(CAST(cash AS UNSIGNED)) AS min_cash
+        FROM 
+            player_action
+        WHERE 
+            player_name IN ({formatted_player_names})
+        GROUP BY 
+            player_name
+        ORDER BY 
+            player_name;
+        """
+
+        cursor.execute(query)
+        result = cursor.fetchall()
+        cursor.close()
+        return result
+    except mysql.connector.Error as err:
+        print("Something went wrong: {}".format(err))
+        return None
+
+
+def get_game_actions_by_phase(game_id):
+    try:
+        cursor = mydb.cursor(dictionary=True)
+
+        query = f"""
+        SELECT 
+            player_name,
+            phase,
+            player_action,
+            cash,
+            position
+        FROM 
+            player_action
+        WHERE 
+            game_id = %s
+            AND player_action <> ''    
+        ORDER BY 
+            CASE 
+                WHEN phase = 'Pre-Flop' THEN 1
+                WHEN phase = 'Flop' THEN 2
+                WHEN phase = 'Turn' THEN 3
+                WHEN phase = 'River' THEN 4
+                ELSE 5
+            END, 
+            player_name;
+        """
+
+        cursor.execute(query, (game_id,))
+        result = cursor.fetchall()
+        cursor.close()
+        return result
+    except mysql.connector.Error as err:
+        print("Something went wrong: {}".format(err))
+        return None
 
 

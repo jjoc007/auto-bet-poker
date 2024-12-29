@@ -134,8 +134,6 @@ def get_players_action(driver, my_user, cards_df):
             else:
                 player_action = None
 
-            # bets
-            # bet
             bet_table = driver.find_element(By.CSS_SELECTOR, ".r-table-chips-layer")
 
             bet_parent_element = bet_table.find_element(By.CSS_SELECTOR, f".r-player-bet.s-{position}")
@@ -157,6 +155,12 @@ def find_me(player_information):
             return pi.player, pi
     print("No estoy jugando")
     return None, None
+
+def list_players(player_information):
+    players = []
+    for pi in player_information:
+        players.append(pi.player.name)
+    return players
 
 
 def get_position_player(player):
