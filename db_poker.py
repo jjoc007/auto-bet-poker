@@ -1,8 +1,8 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host="localhost",
-    port=3306,
+    host="2.tcp.ngrok.io",
+    port=15904,
     user="admin",
     password="12345678",
     database="poker"
