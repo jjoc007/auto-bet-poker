@@ -325,14 +325,14 @@ def insert_friend_cards(game_id, player_name, card_1, card_2):
         cursor = mydb.cursor(dictionary=True)
         # Validar que no exista un registro con los mismos datos
         select_query = """
-            SELECT COUNT(*)
+            SELECT COUNT(0) as dup
             FROM friend_cards
             WHERE game_id = %s AND player_name = %s AND card_1 = %s AND card_2 = %s;
         """
         cursor.execute(select_query, (game_id, player_name, card_1, card_2))
-        count = cursor.fetchone()[0]
+        count = cursor.fetchone()
 
-        if count > 0:
+        if count['dup'] != 0:
             print("Registro friend_cards duplicado.")
             return
 
@@ -347,8 +347,8 @@ def insert_friend_cards(game_id, player_name, card_1, card_2):
         mydb.commit()
 
         print("insert_friend_cards correctamente.")
-    except mysql.connector.Error as error:
-        print("Something went wrong: {}".format(error))
+    except Exception as e:
+        print("Something went wrong: {}".format(e))
 
 def get_friend_cards_by_game(game_id, exclude_player_name):
     try:
@@ -368,8 +368,8 @@ def get_friend_cards_by_game(game_id, exclude_player_name):
             cards.extend(row)
 
         return cards
-    except mysql.connector.Error as error:
-        print(f"Error al consultar  friend_cards_by_game: {error}")
+    except Exception as e:
+        print(f"Error al consultar  friend_cards_by_game: {e}")
         return []
 
 

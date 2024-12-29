@@ -1,8 +1,6 @@
-import os
 import re
 import pandas as pd
 import uuid
-import cv2
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 
@@ -29,42 +27,6 @@ cartas = {
     'A': 14,
 }
 
-
-def load_cards():
-    templates = {}
-    for file in os.listdir('cards'):
-        if file.endswith('.png'):
-            card_name = os.path.splitext(file)[0]
-            template = cv2.imread(os.path.join('cards', file), cv2.IMREAD_GRAYSCALE)
-            template = cv2.normalize(template, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
-            card_value = card_name.split('_')[1]
-            card_suit = card_name.split('_')[0]
-            card_key = (card_suit, card_value)
-            if card_key in templates:
-                templates[card_key].append(template)
-            else:
-                templates[card_key] = [template]
-    return templates
-
-
-def detect_cards(img, templates, threshold=0.99):
-    detected_cards = []
-    for name, template_list in templates.items():
-        for template in template_list:
-            w, h = template.shape[::-1]
-
-            # Aplica la coincidencia de plantillas
-            res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
-
-            # Encuentra todas las ubicaciones donde la coincidencia es lo suficientemente fuerte
-            _, max_val, _, max_loc = cv2.minMaxLoc(res)
-
-            if max_val >= threshold:
-                detected_cards.append(name)
-                cv2.rectangle(img, max_loc, (max_loc[0] + w, max_loc[1] + h), 0, 2)
-                break
-
-    return detected_cards, determine_poker_phase(len(detected_cards))
 
 
 def determine_poker_phase(total_cards):
