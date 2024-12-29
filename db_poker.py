@@ -1,7 +1,7 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host="192.168.10.14",
+    host="localhost",
     port=3306,
     user="admin",
     password="12345678",
@@ -365,7 +365,8 @@ def get_friend_cards_by_game(game_id, exclude_player_name):
 
         cards = []
         for row in result:
-            cards.extend(row)
+            cards.append(row['card_1'])
+            cards.append(row['card_2'])
 
         return cards
     except Exception as e:
