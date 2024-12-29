@@ -10,10 +10,7 @@ from evaluator.card import *
 from evaluator.hand_evaluator import *
 import time
 
-
-
-my_player = "jjoc007" #os.environ.get('MY_PLAYER')
-my_friends = [os.environ.get('MY_FRIEND')]
+my_player = os.environ.get('MY_PLAYER')
 cache = {}
 
 def make_decision(game_id, force, phase, required_bet, pot, player_data, blinds, my_cash, my_cards, community_cards, t_info):
@@ -121,21 +118,24 @@ def run_poker_bot():
                     if phase is None or cards is None:
                         continue
 
-                    players_action_information = get_players_action(driver, "jjoc007", cards_df)
+                    players_action_information = get_players_action(driver, my_player, cards_df)
                     me, me_action = find_me(players_action_information)
 
                     if me and me.card_1 and me.card_2:
+                        insert_friend_cards(game_id, my_player, me.card_1, me.card_2)
+                        friend_cards = get_friend_cards_by_game(game_id, my_player)
+                        print(f"friend Cards: {friend_cards}")
                         if phase == 'Pre-Flop':
                             force = HandEvaluator.evaluate_hand(
                                 [translate_card(me.card_1), translate_card(me.card_2)],
                                 board=[],
-                                friend_cards=[]
+                                friend_cards=translate_cards(friend_cards)
                             )
                         else:
                             force = HandEvaluator.evaluate_hand(
                                 [translate_card(me.card_1), translate_card(me.card_2)],
                                 board=translate_cards(cards),
-                                friend_cards=[]
+                                friend_cards=translate_cards(friend_cards)
                             )
 
                         required_bet = get_current_bet(driver)

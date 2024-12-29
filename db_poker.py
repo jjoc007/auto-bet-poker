@@ -320,4 +320,56 @@ def get_game_actions_by_phase(game_id):
         print("Something went wrong: {}".format(err))
         return None
 
+def insert_friend_cards(game_id, player_name, card_1, card_2):
+    try:
+        cursor = mydb.cursor(dictionary=True)
+        # Validar que no exista un registro con los mismos datos
+        select_query = """
+            SELECT COUNT(*)
+            FROM friend_cards
+            WHERE game_id = %s AND player_name = %s AND card_1 = %s AND card_2 = %s;
+        """
+        cursor.execute(select_query, (game_id, player_name, card_1, card_2))
+        count = cursor.fetchone()[0]
+
+        if count > 0:
+            print("Registro friend_cards duplicado.")
+            return
+
+        # Query de inserción
+        insert_query = """
+            INSERT INTO friend_cards (game_id, player_name, card_1, card_2)
+            VALUES (%s, %s, %s, %s);
+        """
+
+        # Ejecutar el query
+        cursor.execute(insert_query, (game_id, player_name, card_1, card_2))
+        mydb.commit()
+
+        print("insert_friend_cards correctamente.")
+    except mysql.connector.Error as error:
+        print("Something went wrong: {}".format(error))
+
+def get_friend_cards_by_game(game_id, exclude_player_name):
+    try:
+        cursor = mydb.cursor(dictionary=True)
+
+        select_query = """
+            SELECT card_1, card_2
+            FROM friend_cards
+            WHERE game_id = %s AND player_name <> %s;
+        """
+
+        cursor.execute(select_query, (game_id, exclude_player_name))
+        result = cursor.fetchall()
+
+        cards = []
+        for row in result:
+            cards.extend(row)
+
+        return cards
+    except mysql.connector.Error as error:
+        print(f"Error al consultar  friend_cards_by_game: {error}")
+        return []
+
 

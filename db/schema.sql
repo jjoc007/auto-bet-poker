@@ -70,3 +70,12 @@ CREATE TABLE `player_action` (
   `stack` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+
+CREATE TABLE friend_cards (
+    id bigint AUTO_INCREMENT PRIMARY KEY,
+    game_id bigint NOT NULL,
+    player_name VARCHAR(255) NOT NULL,
+    card_1 VARCHAR(10) NOT NULL,
+    card_2 VARCHAR(10) NOT NULL
+);
