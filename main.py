@@ -161,7 +161,7 @@ def run_poker_bot():
                     if new_game_id != game_id:
                         break
 
-                    time.sleep(12)
+                    time.sleep(8)
                 except Exception as e:
                     print(f"Skip Error")
 
