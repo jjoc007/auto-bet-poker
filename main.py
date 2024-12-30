@@ -17,8 +17,18 @@ def make_decision(game_id, force, phase, required_bet, pot, player_data, blinds,
     M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
     # print(f"big_blind:{blinds['big_blind']} small: {blinds['big_blind']/2}  ante: {blinds['ante']} M: {M}")
 
-    if force < 0.8:
+    if force < 0.83:
         return 'fold'
+
+    if phase == 'Pre-Flop':
+        if force >= 0.95:
+            return 'raise'
+        if force >= 0.88:
+            return 'call'
+        if force >= 0.83 and 0 < required_bet <= 2000:
+            return 'call'
+        else:
+            return 'fold'
 
     data = {
         'game_id': game_id,
@@ -124,7 +134,7 @@ def run_poker_bot():
                     if me and me.card_1 and me.card_2:
                         insert_friend_cards(game_id, my_player, me.card_1, me.card_2)
                         friend_cards = get_friend_cards_by_game(game_id, my_player)
-                        print(f"friend Cards: {friend_cards}")
+                        # print(f"friend Cards: {friend_cards}")
                         if phase == 'Pre-Flop':
                             force = HandEvaluator.evaluate_hand(
                                 [translate_card(me.card_1), translate_card(me.card_2)],
@@ -165,7 +175,7 @@ def run_poker_bot():
                 except Exception as e:
                     print(f"Skip Error")
 
-            if time.time() - start_time >= 1200:
+            if time.time() - start_time >= 1800:
                 print("20 minutos cumplidos, reiniciando el driver.")
                 break
     finally:
