@@ -9,46 +9,33 @@ from actions import *
 from evaluator.card import *
 from evaluator.hand_evaluator import *
 import time
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 
 my_player = os.environ.get('MY_PLAYER')
 cache = {}
 
 def make_decision(game_id, force, phase, required_bet, pot, player_data, blinds, my_cash, my_cards, community_cards, t_info):
     M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
+    pot_odds_fraction = required_bet / (pot + required_bet)  # en forma de fracción
+    difference = force - pot_odds_fraction
+
+    print(f"FORCE: {force} POT: {pot} RB: {required_bet} POT ODDS: {pot_odds_fraction} Difference: {difference}  MYCASH: {my_cash}")
     # print(f"big_blind:{blinds['big_blind']} small: {blinds['big_blind']/2}  ante: {blinds['ante']} M: {M}")
 
-    if force < 0.83:
-        return 'fold'
-
-    if phase == 'Pre-Flop':
-        if force >= 0.95:
-            return 'raise'
-        if force >= 0.88:
-            return 'call'
-        if force >= 0.83 and 0 < required_bet <= 2000:
-            return 'call'
-        else:
+    # Caso 1: No hay apuesta que igualar (puedes "checkear" o apostar):
+    if required_bet == 0:
+        if force < 0.87:
             return 'fold'
+        if force >= 0.87:
+            return 'bet'
 
-    data = {
-        'game_id': game_id,
-        'players': list_players(player_data),
-        'phase': phase,
-        'big_blind': blinds['big_blind'],
-        'small_blind': blinds['big_blind']/2,
-        'ante': blinds['ante'],
-        'm': M,
-        'my_cash': my_cash,
-        'pot': pot,
-        'required_bet': required_bet,
-        'force': force,
-        'my_cards':my_cards,
-        'community_cards': community_cards
-    }
-
-    decision = get_strategy_from_model(data, t_info)
-
-    return decision
+    if difference < 0.45:
+        return "fold"
+    elif difference < 0.70:
+        return "call"
+    else:
+        return "raise"
 
 def translate_card(card_play):
     s, v = card_play.split("_")
@@ -68,11 +55,16 @@ def translate_cards(play_cards):
         c.append(translate_card(card))
     return c
 
+
+
+
 def start_driver():
     options = uc.ChromeOptions()
     options.add_argument("--remote-debugging-port=9222")  # Puerto para DevTools Protocol
     options.add_argument("--disable-gpu")
+    # options.add_argument("--proxy-server=127.0.0.1:8083")
     options.add_argument("--no-sandbox")
+
     return uc.Chrome(options=options)
 
 def run_poker_bot():
@@ -107,82 +99,80 @@ def run_poker_bot():
 
         # Control de tiempo: 20 minutos
         start_time = time.time()
-        while time.time() - start_time < 1200:  # 1200 segundos = 20 minutos
-            game_id = detect_game(driver)
-            if game_id == 0:
-                continue
+        while time.time() - start_time < 3600:  # 1200 segundos = 20 minutos
+            # iterar sobre mesas
+            games = driver.find_elements(By.CLASS_NAME, 'single_table_container')
+            print(f"cantidad de juegos detectado: {len(games)}")
 
-            cards_df = pd.read_csv('cards64/cards.csv')
-            players_information = get_players_info(driver)
-            insert_game(game_id, players_information)
+            for game in games:
+                gi = detect_game(game)
+                if gi == 0:
+                    continue
 
-            while True:
                 try:
+                    # listen_to_websocket(driver)
+                    perform_blinds(game)
+                    sentarme(game)
+                    pozo_total = detect_pozo(game)
+                    blinds = detect_blinds(game)
 
-                    perform_blinds(driver)
-                    sentarme(driver)
-                    pozo_total = detect_pozo(driver)
-                    blinds = detect_blinds(driver)
-
-                    phase, cards = phase_detect(driver, cards_df)
+                    phase, cards = phase_detect(game, cards_df)
                     if phase is None or cards is None:
                         continue
 
-                    players_action_information = get_players_action(driver, my_player, cards_df)
+                    players_action_information = get_players_action(game, my_player, cards_df)
                     me, me_action = find_me(players_action_information)
 
                     if me and me.card_1 and me.card_2:
-                        insert_friend_cards(game_id, my_player, me.card_1, me.card_2)
-                        friend_cards = get_friend_cards_by_game(game_id, my_player)
+                        #insert_friend_cards(gi, my_player, me.card_1, me.card_2)
+                        #friend_cards = get_friend_cards_by_game(gi, my_player)
                         # print(f"friend Cards: {friend_cards}")
                         if phase == 'Pre-Flop':
                             force = HandEvaluator.evaluate_hand(
                                 [translate_card(me.card_1), translate_card(me.card_2)],
                                 board=[],
-                                friend_cards=translate_cards(friend_cards)
+                                friend_cards=translate_cards([])
                             )
                         else:
                             force = HandEvaluator.evaluate_hand(
                                 [translate_card(me.card_1), translate_card(me.card_2)],
                                 board=translate_cards(cards),
-                                friend_cards=translate_cards(friend_cards)
+                                friend_cards=translate_cards([])
                             )
 
-                        required_bet = get_current_bet(driver)
+                        required_bet = get_current_bet(game)
                         my_cash = me_action.actual_cash
 
-                        print(f"FORCE of my hand: {force} RB: {required_bet}")
-                        t_info = extract_table_info(driver)
+                        #print(f"FORCE of my hand: {force} RB: {required_bet}")
+                        #t_info = extract_table_info(game)
 
                         accion = make_decision(
-                            game_id, force, phase, required_bet, pozo_total,
+                            gi, force, phase, required_bet, pozo_total,
                             players_action_information, blinds, my_cash,
-                            f"{me.card_1}, {me.card_2}", ", ".join(cards), t_info
+                            f"{me.card_1}, {me.card_2}", ", ".join(cards), {}
                         )
 
                         if accion:
-                            perform_action(driver, accion)
+                            perform_action(game, accion, driver)
                         else:
-                            perform_action(driver, 'fold')
+                            perform_action(game, 'fold', driver)
 
                         print("------------------------------------------------------------")
 
-                    new_game_id = detect_game(driver)
-                    if new_game_id != game_id:
-                        break
-
-                    time.sleep(8)
+                    time.sleep(0.1)
                 except Exception as e:
-                    print(f"Skip Error")
+                    print(f"Skip Error: {e}")
 
-            if time.time() - start_time >= 1800:
-                print("20 minutos cumplidos, reiniciando el driver.")
-                break
+                if time.time() - start_time >= 2400:
+                    print("20 minutos cumplidos, reiniciando el driver.")
+                    break
+
     finally:
         driver.quit()
 
 
 
+cards_df = pd.read_csv('cards64/cards.csv')
 # Bucle principal
 while True:
     try:

@@ -76,11 +76,17 @@ def get_current_bet(driver):
                                      ".//div[contains(@class, 'pa-call')]//div[contains(@class, 'SimpleButton__text')]")
 
         text = call_component.text
+        print(f"require bet text: {text}")
         bet_value_text = text.split('$')[-1]
-        bet_value_text = bet_value_text.split('.')[0]
-        bet_value = bet_value_text.replace('K', '00')
-        bet_value = float(bet_value.replace(',', ''))  # Removemos las comas en caso de que existan (ej. "1,000")
-        return bet_value
+
+        if 'K' in bet_value_text:
+            bet_str = bet_value_text.replace('K', '')  # elimina la 'K'
+            value = float(bet_str)  # convierte a número
+            value *= 1000  # multiplica por 1000
+            return value
+        else:
+            # Si no hay 'K', se convierte directamente
+            return float(bet_value_text)
     except Exception as e:
         return 0
 
