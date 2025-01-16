@@ -2,7 +2,7 @@ import undetected_chromedriver as uc
 from game import *
 
 from players import *
-from genrative_prediction import *
+import os
 from deteccion_fase import *
 from probabilities import *
 from actions import *
@@ -14,28 +14,60 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 my_player = os.environ.get('MY_PLAYER')
 cache = {}
+session_time = 3600
 
-def make_decision(game_id, force, phase, required_bet, pot, player_data, blinds, my_cash, my_cards, community_cards, t_info):
+def decide_action(score, required_bet, phase):
+    # Definir umbrales según la fase del juego
+    if phase == 'pre-flop':
+        thresholds = {'fold': 0.6, 'call': 0.8, 'bet': 0.9}
+    elif phase == 'flop':
+        thresholds = {'fold': 0.5, 'call': 0.7, 'bet': 0.85}
+    else:  # river
+        thresholds = {'fold': 0.4, 'call': 0.6, 'bet': 0.8}
+
+    # Tomar decisión basada en el score y la apuesta requerida
+    if score < thresholds['fold']:
+        return 'fold'
+    elif score < thresholds['call']:
+        return 'call'
+    elif score < thresholds['bet']:
+        # Si no hay apuesta previa, inicia una apuesta (bet)
+        return 'bet' if required_bet == 0 else 'call'
+    else:
+        # Si ya hay una apuesta previa, entonces 'raise'
+        return 'raise' if required_bet > 0 else 'bet'
+
+
+def make_decision(game_id, force, phase, required_bet, pot, player_data, blinds, my_cash, my_cards, community_cards, t_info, table_players, active_players):
     M = (my_cash / (blinds['big_blind'] + (blinds['big_blind']/2) + blinds['ante']))
     pot_odds_fraction = required_bet / (pot + required_bet)  # en forma de fracción
-    difference = force - pot_odds_fraction
 
-    print(f"FORCE: {force} POT: {pot} RB: {required_bet} POT ODDS: {pot_odds_fraction} Difference: {difference}  MYCASH: {my_cash}")
+    # Ponderaciones
+    w_f = 0.6  # Peso de fuerza
+    w_p = 0.3  # Peso de pot odds
+    w_n = 0.1  # Peso de jugadores restantes
+
+    if phase == 'Pre-flop':
+        w_f, w_p, w_n = 0.7, 0.3, 0.4
+    elif phase == 'Flop':
+        w_f, w_p, w_n = 0.8, 0.2, 0.3
+    elif phase == 'Turn':
+        w_f, w_p, w_n = 0.9, 0.2, 0.3
+    elif phase == 'River':
+        w_f, w_p, w_n = 0.9, 0.1, 0.1
+
+    # Calcular componentes
+    force_component = w_f * force
+    pot_odds_component = w_p * (1 - pot_odds_fraction)
+    players_component = w_n * (1 - active_players / table_players)
+
+    # Score final
+    SD = force_component + pot_odds_component + players_component
+
+    print(f"FORCE: {force} POT: {pot} RB: {required_bet} POT ODDS: {pot_odds_fraction} SD: {SD}  MYCASH: {my_cash}")
     # print(f"big_blind:{blinds['big_blind']} small: {blinds['big_blind']/2}  ante: {blinds['ante']} M: {M}")
 
-    # Caso 1: No hay apuesta que igualar (puedes "checkear" o apostar):
-    if required_bet == 0:
-        if force < 0.87:
-            return 'fold'
-        if force >= 0.87:
-            return 'bet'
-
-    if difference < 0.45:
-        return "fold"
-    elif difference < 0.70:
-        return "call"
-    else:
-        return "raise"
+    return decide_action(SD, required_bet, phase)
 
 def translate_card(card_play):
     s, v = card_play.split("_")
@@ -56,11 +88,9 @@ def translate_cards(play_cards):
     return c
 
 
-
-
 def start_driver():
     options = uc.ChromeOptions()
-    options.add_argument("--remote-debugging-port=9222")  # Puerto para DevTools Protocol
+    #options.add_argument("--remote-debugging-port=9222")  # Puerto para DevTools Protocol
     options.add_argument("--disable-gpu")
     # options.add_argument("--proxy-server=127.0.0.1:8083")
     options.add_argument("--no-sandbox")
@@ -70,7 +100,7 @@ def start_driver():
 def run_poker_bot():
     driver = start_driver()
     try:
-        driver.execute_cdp_cmd("Network.enable", {})
+        #driver.execute_cdp_cmd("Network.enable", {})
         driver.get("https://betplay.com.co/poker")
 
         time.sleep(5)
@@ -97,9 +127,8 @@ def run_poker_bot():
         iframe = driver.find_element(By.CSS_SELECTOR, 'iframe[_ngcontent-serverapp-c3285601390]')
         driver.switch_to.frame(iframe)
 
-        # Control de tiempo: 20 minutos
         start_time = time.time()
-        while time.time() - start_time < 3600:  # 1200 segundos = 20 minutos
+        while time.time() - start_time < session_time:
             # iterar sobre mesas
             games = driver.find_elements(By.CLASS_NAME, 'single_table_container')
             print(f"cantidad de juegos detectado: {len(games)}")
@@ -120,7 +149,8 @@ def run_poker_bot():
                     if phase is None or cards is None:
                         continue
 
-                    players_action_information = get_players_action(game, my_player, cards_df)
+                    table_information = get_players_action(game, my_player, cards_df)
+                    players_action_information = table_information["player_info"]
                     me, me_action = find_me(players_action_information)
 
                     if me and me.card_1 and me.card_2:
@@ -149,7 +179,7 @@ def run_poker_bot():
                         accion = make_decision(
                             gi, force, phase, required_bet, pozo_total,
                             players_action_information, blinds, my_cash,
-                            f"{me.card_1}, {me.card_2}", ", ".join(cards), {}
+                            f"{me.card_1}, {me.card_2}", ", ".join(cards), {}, table_information["total_players"], table_information["active_players"]
                         )
 
                         if accion:
@@ -163,8 +193,8 @@ def run_poker_bot():
                 except Exception as e:
                     print(f"Skip Error: {e}")
 
-                if time.time() - start_time >= 2400:
-                    print("20 minutos cumplidos, reiniciando el driver.")
+                if time.time() - start_time >= session_time:
+                    print("reiniciando el driver.")
                     break
 
     finally:

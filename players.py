@@ -33,10 +33,11 @@ class BetPlayer:
 
 
 class ActionPlayer:
-    def __init__(self, position, player, action, actual_cash, bet_player):
+    def __init__(self, position, player, action, actual_cash, bet_player, active):
         self.position = position
         self.player = player
         self.action = action
+        self.active = active
         self.actual_cash = get_balance(actual_cash)
         if self.action is None:
             self.action = ''
@@ -79,10 +80,10 @@ def get_players_info(driver):
             pass
     return players_info
 
-
 def get_players_action(driver, my_user, cards_df):
     players = driver.find_elements(By.CLASS_NAME, 'r-seat')
     players_info = []
+    total_players = len(players)
 
     for player in players:
         try:
@@ -94,11 +95,11 @@ def get_players_action(driver, my_user, cards_df):
             if seat_class:  # comprueba si encontramos una clase que comienza con 's-'
                 position = seat_class[0].split('-')[1]  # toma el número después de 's-'
 
-            # busca la clase que comienza con 's-'
-            seat_class = [s for s in classes if s.startswith('s-')]
-
             name = player.find_element(By.CLASS_NAME, 'player-name')
             player_name = name.text
+
+            cards_player = player.find_elements(By.CLASS_NAME, 'r-card-wrapper')
+            player_active = True if len(cards_player) == 2 else False
 
             me = False
             card_hand_1 = None
@@ -134,19 +135,18 @@ def get_players_action(driver, my_user, cards_df):
             else:
                 player_action = None
 
-            bet_table = driver.find_element(By.CSS_SELECTOR, ".r-table-chips-layer")
-
-            bet_parent_element = bet_table.find_element(By.CSS_SELECTOR, f".r-player-bet.s-{position}")
-            bet_child_element = bet_parent_element.find_element(By.CSS_SELECTOR, ".r-player-bet-content")
-            bet = bet_child_element.text
-
-            bets = BetPlayer(bet)
-
-            player_action_information = ActionPlayer(position, player_information, player_action, player_cash, bets)
+            player_action_information = ActionPlayer(position, player_information, player_action, player_cash, None, player_active)
             players_info.append(player_action_information)
         except Exception as e:
             pass
-    return players_info
+
+    active_players = sum(player.active for player in players_info)
+    return {
+        "player_info": players_info,
+        "active_players": active_players,
+        "total_players": total_players
+    }
+
 
 
 def find_me(player_information):
