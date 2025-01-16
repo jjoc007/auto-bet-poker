@@ -163,6 +163,6 @@ def flop_init(players, num_simulations):
             insert_into_hand_many(data_to_insert)
 
 
-flop_init(4, 1000)
+flop_init(9, 1000)
 
 #simulate_hands()
